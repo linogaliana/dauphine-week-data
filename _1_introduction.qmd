@@ -1,0 +1,86 @@
+# Introduction
+
+## La notion de mise en production {.smaller}
+
+
+::: {.callout-note}
+## Définition
+
+- [**Mettre en production**]{.orange} : faire [**vivre**]{.blue2} une application dans l'espace de ses [**utilisateurs**]{.blue2}
+    - Notion simple mais mise en oeuvre compliquée !
+
+:::
+
+
+- Dépasser le stade de l'expérimentation
+    - [**Bonnes pratiques**]{.blue2} de développement
+    - Techniques informatiques d'[**industrialisation**]{.blue2}
+
+- Enjeu : pouvoir jouer le [**rôle d'interface**]{.orange} entre métier et équipes techniques
+    - Evolution du métier de _data scientist_
+    - Emergence de la problématique `MLOps` (cf. suite)
+
+<br>
+
+## Le _data scientist_ moderne {.smaller}
+
+L'activité du *datascientist* tend à se rapprocher de celle du développeur :
+
+- projets [**intenses en code**]{.orange}
+
+- [**projets collaboratifs**]{.orange} et de grande envergure
+
+- [**complexification**]{.orange} des données et des [**infrastructures**]{.orange}
+
+- [**déploiement**]{.orange} d'applications pour valoriser les analyses
+
+
+## Motivation
+
+- La [**massification**]{.orange} et la [**diversification**]{.orange} des données apportent de nombreux changements
+    - Le *Data Lake*
+    - Le *Data Lab*
+    - De nouveaux profils : *Data Scientist*, *Data Engineer*, *Data Architect*
+
+- La majorité des projets de data science [**ne sont pas déployés**]{.orange}
+
+- Besoin d'[**industrialisation**]{.orange} qui nécessite de nouveaux outils
+
+## L'approche DevOps
+
+- Idée : [**unifier**]{.orange} le développement (*dev*) et l'administration système (*ops*)
+
+- But : raccourcir le temps de développement en [**déployant en continu**]{.orange} tout en maintenant la qualité
+
+. . .
+
+![](img/devops.png){fig-align="center" height=300}
+
+## DevOps, DataOps, MLOps ?
+
+- Le [**DevOps**]{.orange} n'intègre pas les spécificités liées à la data science
+
+- [**DataOps**]{.orange} : déploiement et maintenance de [**pipelines de données**]{.blue2}
+
+- [**MLOps**]{.orange} : déploiement et maintenance de [**modèles de Machine Learning**]{.blue2}
+
+- Les [**bonnes pratiques**]{.orange} favorisent la collaboration et facilitent les déploiements
+
+## La mise en production
+
+- On a construit un projet de data science [**reproductible**]{.orange} et conforme aux [**standards**]{.orange} des bonnes pratiques
+
+- Pour [**valoriser**]{.orange} le projet, il faut le [**déployer**]{.orange} dans un environnement en lien avec les utilisateurs
+    - Quel est le [**format**]{.blue2} adapté pour le valoriser ?
+    - Quelle [**infrastructure de production**]{.blue2} ?
+    - Comment [**automatiser**]{.blue2} le processus de déploiement ?
+
+## Format de valorisation
+
+- [**Critères**]{.orange} à prendre en compte :
+    - Quels sont les [**utilisateurs**]{.blue2} potentiels ?
+    - Seulement de la [**mise à disposition**]{.blue2}, ou besoin d'[**interactivité**]{.blue2} ?
+    - Spécificités ML : entraînement en [**batch**]{.blue2} ou [**online**]{.blue2} ?
+    - Besoin de [**scalabilité**]{.blue2} ?
+
+- [**Formats usuels**]{.orange} : API, application web, dashboard, site internet, rapport automatisé...

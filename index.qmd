@@ -1,7 +1,7 @@
 ---
-title: XXXX
+title: Mise en production de modèles de _machine learning_
 subtitle: |
-  **[XXXX]{.orange}**
+  **[Une introduction]{.orange}**
 author: |
     [Lino Galiana](https://www.linogaliana.fr/)
 institute: |
@@ -9,7 +9,7 @@ institute: |
 #date: 06-09-2023
 slide-number: true
 footer: |
-  **_XXXXXXXX_**
+  **_PSL Data Week_**
 # uncomment for French presentations:
 lang: fr-FR
 # for blind readers:
@@ -27,15 +27,16 @@ format:
 from: markdown+emoji
 ---
 
-## Contexte
 
-- Evénement de formation à la _data science_ à l'Insee
-    + 150 personnes
-    + 5 tutoriels guidés ([inseefrlab.github.io/funathon2023](https://inseefrlab.github.io/funathon2023/))
+## Plan
 
-. . .
+1. Retour sur les évolutions récentes ;
+2. Pourquoi parler de mise en production ;
 
-- `OpenFoodFacts`: excellente base pour se former
-    + Nettoyage textuels (NLP) ; 
-    + Classification automatique ;
-    + _Dataviz_ et déploiement d'application.
+{{< include "_0_contexte.qmd"  >}}
+
+
+{{< include "_1_introduction.qmd"  >}}
+
+
+
