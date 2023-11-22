@@ -1,9 +1,114 @@
 [
   {
-    "objectID": "index.html#contexte",
-    "href": "index.html#contexte",
-    "title": "XXXX",
-    "section": "Contexte",
-    "text": "Contexte\n\nEvénement de formation à la data science à l’Insee\n\n150 personnes\n5 tutoriels guidés (inseefrlab.github.io/funathon2023)\n\n\n\n\nOpenFoodFacts: excellente base pour se former\n\nNettoyage textuels (NLP) ;\nClassification automatique ;\nDataviz et déploiement d’application.\n\n\n\n\nXXXXXXXX"
+    "objectID": "index.html#plan",
+    "href": "index.html#plan",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Plan",
+    "text": "Plan\n\nRetour sur les évolutions récentes ;\nPourquoi parler de mise en production ;"
+  },
+  {
+    "objectID": "index.html#qui-suis-je-fa-brands-firefox-sizetiny-fa-brands-github-sizetiny-fa-brands-twitter-sizetiny-fa-brands-linkedin-sizetiny-fa-brands-python-sizetiny",
+    "href": "index.html#qui-suis-je-fa-brands-firefox-sizetiny-fa-brands-github-sizetiny-fa-brands-twitter-sizetiny-fa-brands-linkedin-sizetiny-fa-brands-python-sizetiny",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Qui suis-je ?      ",
+    "text": "Qui suis-je ?      \n\nData scientist au lab de l’Insee :\n\nAdministrateur Insee ;\nCoordonnateur d’un réseau de data scientists\n\n\n\n\nImplication dans l’innovation statistique, l’open source et la diffusion grand public1:\n\n: utilitR, doremifasol\n: cartiflette, pynsee\n\n\n\nPas tout seul ! Avec une communauté de gens sympa de l’administration et de la recherche ! Beaucoup de projets novateurs 😍 sur compte  InseeFrLab"
+  },
+  {
+    "objectID": "index.html#qui-suis-je",
+    "href": "index.html#qui-suis-je",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Qui suis-je ?",
+    "text": "Qui suis-je ?\n\nTravaux à l’intersection entre\ninformatique, économie, sociologie & géographie:\n\nSégrégation avec données de téléphonie mobile\nInégalités alimentaires à partir de données massives de supermarchés\n\n\n\nExemple tiré de l’Insee Analyse sur la mixité sociale"
+  },
+  {
+    "objectID": "index.html#qui-suis-je-1",
+    "href": "index.html#qui-suis-je-1",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Qui suis-je ?",
+    "text": "Qui suis-je ?\nD’autres cours que je donne à l’ENSAE ou l’Insee peuvent vous intéresser:\n\nPython pour la data science ;\nMise en production de projets data science ;\nBonnes pratiques en R et Git ;\nDonnées émergentes ;\n\nEt surtout consultez le portail complet de formation du datalab de l’Insee"
+  },
+  {
+    "objectID": "index.html#prolifération-des-données",
+    "href": "index.html#prolifération-des-données",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Prolifération des données",
+    "text": "Prolifération des données\n\nNumérisation et innovations technologiques ont réduit le coût de production de la donnée ;\n\nVolume de données produites en explosion\n\n\n\n\nL’utilisation des statistiques n’est pas nouvelle (cf. Desrosières)…\n\n\n\n\n… mais une place accrue :\n\nDans le débat public et l’action publique (Supiot, Martin) ;\nDans les stratégies d’entreprise."
+  },
+  {
+    "objectID": "index.html#diversification-des-données",
+    "href": "index.html#diversification-des-données",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Diversification des données",
+    "text": "Diversification des données\n\nDes données de nature très différentes:\n\nDonnées structurées classiques ;\nDonnées géolocalisées ;\nDonnées textuelles et non structurées ;\nImages, sons et vidéos.\n\n\n\n\nBesoin de nouvelles méthodes pour valoriser ces données :\n\nMachine learning (re)devenu un outil classique ;\nRéseaux de neurone pour les problèmes complexes (NLP, CV)…"
+  },
+  {
+    "objectID": "index.html#diversité-des-méthodes-de-machine-learning",
+    "href": "index.html#diversité-des-méthodes-de-machine-learning",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Diversité des méthodes de machine learning",
+    "text": "Diversité des méthodes de machine learning\n\nDispose-t-on de données labellisées ou pas ?\n\nApprentissage supervisé vs non supervisé ;\nQuestion évaluation ex post des modèles: labellisation\n\nQuelle variable d’intérêt ?\n\nRégression vs classification"
+  },
+  {
+    "objectID": "index.html#diversité-des-méthodes-de-machine-learning-1",
+    "href": "index.html#diversité-des-méthodes-de-machine-learning-1",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Diversité des méthodes de machine learning",
+    "text": "Diversité des méthodes de machine learning"
+  },
+  {
+    "objectID": "index.html#scikit-learn-un-point-dentrée-unifié",
+    "href": "index.html#scikit-learn-un-point-dentrée-unifié",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Scikit-Learn: un point d’entrée unifié",
+    "text": "Scikit-Learn: un point d’entrée unifié\n\nLa librairie de référence pour le ML\n\nDéveloppée par l’Inria 🇫🇷🐓\n\nToutes les étapes d’un pipeline basique\n\nPréparation des données: train/test split, imputation, standardisation, etc.\nEstimation: toutes les méthodes ont la même structure\nEvaluation: métriques de performance, validation croisée, etc.\n\nStructure formelle de pipeline"
+  },
+  {
+    "objectID": "index.html#la-notion-de-mise-en-production",
+    "href": "index.html#la-notion-de-mise-en-production",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "La notion de mise en production",
+    "text": "La notion de mise en production\n\n\n\n\n\n\nDéfinition\n\n\n\nMettre en production : faire vivre une application dans l’espace de ses utilisateurs\n\nNotion simple mais mise en oeuvre compliquée !\n\n\n\n\n\n\nDépasser le stade de l’expérimentation\n\nBonnes pratiques de développement\nTechniques informatiques d’industrialisation\n\nEnjeu : pouvoir jouer le rôle d’interface entre métier et équipes techniques\n\nEvolution du métier de data scientist\nEmergence de la problématique MLOps (cf. suite)"
+  },
+  {
+    "objectID": "index.html#le-data-scientist-moderne",
+    "href": "index.html#le-data-scientist-moderne",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Le data scientist moderne",
+    "text": "Le data scientist moderne\nL’activité du datascientist tend à se rapprocher de celle du développeur :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et des infrastructures\ndéploiement d’applications pour valoriser les analyses"
+  },
+  {
+    "objectID": "index.html#motivation",
+    "href": "index.html#motivation",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Motivation",
+    "text": "Motivation\n\nLa massification et la diversification des données apportent de nombreux changements\n\nLe Data Lake\nLe Data Lab\nDe nouveaux profils : Data Scientist, Data Engineer, Data Architect\n\nLa majorité des projets de data science ne sont pas déployés\nBesoin d’industrialisation qui nécessite de nouveaux outils"
+  },
+  {
+    "objectID": "index.html#lapproche-devops",
+    "href": "index.html#lapproche-devops",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "L’approche DevOps",
+    "text": "L’approche DevOps\n\nIdée : unifier le développement (dev) et l’administration système (ops)\nBut : raccourcir le temps de développement en déployant en continu tout en maintenant la qualité"
+  },
+  {
+    "objectID": "index.html#devops-dataops-mlops",
+    "href": "index.html#devops-dataops-mlops",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "DevOps, DataOps, MLOps ?",
+    "text": "DevOps, DataOps, MLOps ?\n\nLe DevOps n’intègre pas les spécificités liées à la data science\nDataOps : déploiement et maintenance de pipelines de données\nMLOps : déploiement et maintenance de modèles de Machine Learning\nLes bonnes pratiques favorisent la collaboration et facilitent les déploiements"
+  },
+  {
+    "objectID": "index.html#la-mise-en-production",
+    "href": "index.html#la-mise-en-production",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "La mise en production",
+    "text": "La mise en production\n\nOn a construit un projet de data science reproductible et conforme aux standards des bonnes pratiques\nPour valoriser le projet, il faut le déployer dans un environnement en lien avec les utilisateurs\n\nQuel est le format adapté pour le valoriser ?\nQuelle infrastructure de production ?\nComment automatiser le processus de déploiement ?"
+  },
+  {
+    "objectID": "index.html#format-de-valorisation",
+    "href": "index.html#format-de-valorisation",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Format de valorisation",
+    "text": "Format de valorisation\n\nCritères à prendre en compte :\n\nQuels sont les utilisateurs potentiels ?\nSeulement de la mise à disposition, ou besoin d’interactivité ?\nSpécificités ML : entraînement en batch ou online ?\nBesoin de scalabilité ?\n\nFormats usuels : API, application web, dashboard, site internet, rapport automatisé…\n\n\n\nPSL Data Week"
   }
 ]

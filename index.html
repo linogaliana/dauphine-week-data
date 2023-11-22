@@ -7,11 +7,13 @@
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Lino Galiana">
-  <title>XXXX</title>
+  <title>Mise en production de modèles de machine learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -327,8 +329,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="site_libs/quarto-contrib/quarto-project/InseeFrLab/onyxia/background.svg" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">XXXX</h1>
-  <p class="subtitle"></p><p><strong><span class="orange">XXXX</span></strong></p><p></p>
+  <h1 class="title">Mise en production de modèles de <em>machine learning</em></h1>
+  <p class="subtitle"></p><p><strong><span class="orange">Une introduction</span></strong></p><p></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -342,30 +344,258 @@
 </div>
 
 </section>
-<section id="contexte" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Contexte</h2>
+<section id="plan" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Plan</h2>
+<ol type="1">
+<li>Retour sur les évolutions récentes ;</li>
+<li>Pourquoi parler de mise en production ;</li>
+</ol>
+</section>
+<section>
+<section id="introduction" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Introduction</h1>
+
+</section>
+<section id="qui-suis-je-fa-brands-firefox-sizetiny-fa-brands-github-sizetiny-fa-brands-twitter-sizetiny-fa-brands-linkedin-sizetiny-fa-brands-python-sizetiny" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2><a href="https://www.linogaliana.fr/">Qui suis-je ?</a> <a href="https://linogaliana.fr"><i class="fa-brands fa-firefox fa-tiny" aria-hidden="true"></i></a> <a href="https://github.com/linogaliana"></a> <a href="https://twitter.com/LinoGaliana"><i class="fa-brands fa-twitter fa-tiny" aria-hidden="true"></i></a> <a href="https://www.linkedin.com/in/linogaliana/"><i class="fa-brands fa-linkedin fa-tiny" aria-hidden="true"></i></a> <span class="orange"><a href="https://observablehq.com/@linogaliana"><svg viewbox="0 0 25 28" width="25" height="28"><path d="M12.5 22.6667C11.3458 22.6667 10.3458 22.4153 9.5 21.9127C8.65721 21.412 7.98339 20.7027 7.55521 19.8654C7.09997 18.9942 6.76672 18.0729 6.56354 17.1239C6.34796 16.0947 6.24294 15.0483 6.25 14C6.25 13.1699 6.30417 12.3764 6.41354 11.6176C6.52188 10.8598 6.72292 10.0894 7.01563 9.30748C7.30833 8.52555 7.68542 7.84763 8.14479 7.27274C8.62304 6.68378 9.24141 6.20438 9.95208 5.87163C10.6979 5.51244 11.5458 5.33333 12.5 5.33333C13.6542 5.33333 14.6542 5.58467 15.5 6.08733C16.3428 6.588 17.0166 7.29733 17.4448 8.13459C17.8969 8.99644 18.2271 9.9103 18.4365 10.8761C18.6448 11.841 18.75 12.883 18.75 14C18.75 14.8301 18.6958 15.6236 18.5865 16.3824C18.4699 17.1702 18.2639 17.9446 17.9719 18.6925C17.6698 19.4744 17.2948 20.1524 16.8427 20.7273C16.3906 21.3021 15.7927 21.7692 15.0479 22.1284C14.3031 22.4876 13.4542 22.6667 12.5 22.6667ZM14.7063 16.2945C15.304 15.6944 15.6365 14.864 15.625 14C15.625 13.1073 15.326 12.3425 14.7292 11.7055C14.1313 11.0685 13.3885 10.75 12.5 10.75C11.6115 10.75 10.8688 11.0685 10.2708 11.7055C9.68532 12.3123 9.36198 13.1405 9.375 14C9.375 14.8927 9.67396 15.6575 10.2708 16.2945C10.8688 16.9315 11.6115 17.25 12.5 17.25C13.3885 17.25 14.124 16.9315 14.7063 16.2945ZM12.5 27C19.4031 27 25 21.1792 25 14C25 6.82075 19.4031 1 12.5 1C5.59687 1 0 6.82075 0 14C0 21.1792 5.59687 27 12.5 27Z"></path></svg></a></span> <a href="https://pythonds.linogaliana.fr/"><i class="fa-brands fa-python fa-tiny" aria-hidden="true"></i></a></h2>
 <ul>
-<li>Evénement de formation à la <em>data science</em> à l’Insee
+<li><em>Data scientist</em> au lab de l’Insee :
 <ul>
-<li>150 personnes</li>
-<li>5 tutoriels guidés (<a href="https://inseefrlab.github.io/funathon2023/">inseefrlab.github.io/funathon2023</a>)</li>
+<li><a href="https://www.insee.fr/fr/information/4774197">Administrateur Insee</a> ;</li>
+<li>Coordonnateur d’un <a href="https://ssphub.netlify.app/">réseau de <em>data scientists</em></a></li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li><code>OpenFoodFacts</code>: excellente base pour se former
+<li>Implication dans l’innovation statistique, l’<em>open source</em> et la diffusion grand public<sup>1</sup>:
 <ul>
-<li>Nettoyage textuels (NLP) ;</li>
-<li>Classification automatique ;</li>
-<li><em>Dataviz</em> et déploiement d’application.</li>
+<li><i class="fa-brands fa-r-project" aria-hidden="true"></i>: <a href="https://www.book.utilitr.org/"><code>utilitR</code></a>, <a href="https://github.com/InseeFrLab/DoReMIFaSol"><code>doremifasol</code></a></li>
+<li><i class="fa-brands fa-python" aria-hidden="true"></i>: <a href="https://github.com/InseeFrLab/cartiflette"><code>cartiflette</code></a>, <a href="https://github.com/InseeFrLab/pynsee"><code>pynsee</code></a></li>
+</ul></li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Pas tout seul ! Avec une communauté de gens sympa de l’administration et de la recherche ! Beaucoup de projets novateurs 😍 sur <a href="https://github.com/InseeFrLab/">compte <i class="fa-brands fa-github" aria-hidden="true"></i> <code>InseeFrLab</code></a></p></li></ol></aside></section>
+<section id="qui-suis-je" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2><a href="https://www.linogaliana.fr/">Qui suis-je ?</a></h2>
+<ul>
+<li>Travaux à l’intersection entre
+informatique, économie, sociologie &amp; géographie:
+<ul>
+<li><a href="https://www.insee.fr/fr/statistiques/fichier/version-html/4925200/G2020-12.pdf">Ségrégation avec données de téléphonie mobile</a></li>
+<li>Inégalités alimentaires à partir de données massives de supermarchés</li>
 </ul></li>
 </ul>
 
-<div class="footer footer-default">
-<p><strong><em>XXXXXXXX</em></strong></p>
+<img data-src="https://ses.ens-lyon.fr/images/actualites-rapports-etudes-et-4-pages/2020-11-09-insee-ia59-fig4.jpg" class="r-stretch quarto-figure-center"><p class="caption">Exemple tiré de l’<a href="https://www.insee.fr/fr/statistiques/fichier/4930403/ia59.pdf">Insee Analyse</a> sur la mixité sociale</p></section>
+<section id="qui-suis-je-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2><a href="https://www.linogaliana.fr/">Qui suis-je ?</a></h2>
+<p>D’autres cours que je donne à l’ENSAE ou l’Insee peuvent vous intéresser:</p>
+<ul>
+<li><a href="https://pythonds.linogaliana.fr/"><code>Python</code> pour la <em>data science</em></a> ;</li>
+<li><a href="https://ensae-reproductibilite.github.io/website/">Mise en production de projets <em>data science</em></a> ;</li>
+<li><a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/">Bonnes pratiques en <code>R</code> et <code>Git</code></a> ;</li>
+<li><a href="https://ensai-donnees-emergentes.netlify.app">Données émergentes</a> ;</li>
+</ul>
+<p><strong>Et surtout consultez le portail complet de formation du <a href="https://www.sspcloud.fr/formation">datalab de l’Insee</a></strong></p>
+</section></section>
+<section>
+<section id="contexte" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Contexte</h1>
+
+</section>
+<section id="prolifération-des-données" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Prolifération des données</h2>
+<ul>
+<li>Numérisation et innovations technologiques ont réduit le coût de production de la donnée ;
+<ul>
+<li>Volume de données produites en explosion</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>L’utilisation des statistiques n’est pas nouvelle (cf.&nbsp;<a href="https://www.cairn.info/la-politique-des-grands-nombres--9782707165046.htm">Desrosières</a>)…</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>… mais une place accrue :
+<ul>
+<li>Dans le débat public et l’action publique (<a href="https://www.fayard.fr/sciences-humaines/la-gouvernance-par-les-nombres-9782213681092">Supiot</a>, <a href="https://www.cairn.info/l-empire-des-chiffres--9782200625719.htm">Martin</a>) ;</li>
+<li>Dans les stratégies d’entreprise.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="diversification-des-données" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Diversification des données</h2>
+<ul>
+<li>Des données de nature très différentes:
+<ul>
+<li>Données structurées classiques ;</li>
+<li>Données géolocalisées ;</li>
+<li>Données textuelles et non structurées ;</li>
+<li>Images, sons et vidéos.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Besoin de nouvelles méthodes pour valoriser ces données :
+<ul>
+<li><em>Machine learning</em> (re)devenu un outil classique ;</li>
+<li>Réseaux de neurone pour les problèmes complexes (NLP, CV)…</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="diversité-des-méthodes-de-machine-learning" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Diversité des méthodes de <em>machine learning</em></h2>
+<ul>
+<li>Dispose-t-on de données labellisées ou pas ?
+<ul>
+<li>Apprentissage supervisé vs non supervisé ;</li>
+<li>Question évaluation <em>ex post</em> des modèles: labellisation</li>
+</ul></li>
+<li>Quelle variable d’intérêt ?
+<ul>
+<li>Régression vs classification</li>
+</ul></li>
+</ul>
+</section>
+<section id="diversité-des-méthodes-de-machine-learning-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Diversité des méthodes de <em>machine learning</em></h2>
+
+<img data-src="https://scikit-learn.org/stable/_static/ml_map.png" class="r-stretch"></section>
+<section id="scikit-learn-un-point-dentrée-unifié" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2><code>Scikit-Learn</code>: un point d’entrée unifié</h2>
+<ul>
+<li>La librairie de référence pour le ML
+<ul>
+<li>Développée par l’Inria 🇫🇷🐓</li>
+</ul></li>
+<li>Toutes les étapes d’un <em>pipeline</em> basique
+<ul>
+<li>Préparation des données: <em>train/test split</em>, imputation, standardisation, etc.</li>
+<li>Estimation: toutes les méthodes ont la même structure</li>
+<li>Evaluation: métriques de performance, validation croisée, etc.</li>
+</ul></li>
+<li>Structure formelle de <em>pipeline</em></li>
+</ul>
+</section></section>
+<section>
+<section id="introduction-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Introduction</h1>
+
+</section>
+<section id="la-notion-de-mise-en-production" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>La notion de mise en production</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Définition</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><span class="orange"><strong>Mettre en production</strong></span> : faire <span class="blue2"><strong>vivre</strong></span> une application dans l’espace de ses <span class="blue2"><strong>utilisateurs</strong></span>
+<ul>
+<li>Notion simple mais mise en oeuvre compliquée !</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>Dépasser le stade de l’expérimentation
+<ul>
+<li><span class="blue2"><strong>Bonnes pratiques</strong></span> de développement</li>
+<li>Techniques informatiques d’<span class="blue2"><strong>industrialisation</strong></span></li>
+</ul></li>
+<li>Enjeu : pouvoir jouer le <span class="orange"><strong>rôle d’interface</strong></span> entre métier et équipes techniques
+<ul>
+<li>Evolution du métier de <em>data scientist</em></li>
+<li>Emergence de la problématique <code>MLOps</code> (cf.&nbsp;suite)</li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="le-data-scientist-moderne" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Le <em>data scientist</em> moderne</h2>
+<p>L’activité du <em>datascientist</em> tend à se rapprocher de celle du développeur :</p>
+<ul>
+<li><p>projets <span class="orange"><strong>intenses en code</strong></span></p></li>
+<li><p><span class="orange"><strong>projets collaboratifs</strong></span> et de grande envergure</p></li>
+<li><p><span class="orange"><strong>complexification</strong></span> des données et des <span class="orange"><strong>infrastructures</strong></span></p></li>
+<li><p><span class="orange"><strong>déploiement</strong></span> d’applications pour valoriser les analyses</p></li>
+</ul>
+</section>
+<section id="motivation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Motivation</h2>
+<ul>
+<li><p>La <span class="orange"><strong>massification</strong></span> et la <span class="orange"><strong>diversification</strong></span> des données apportent de nombreux changements</p>
+<ul>
+<li>Le <em>Data Lake</em></li>
+<li>Le <em>Data Lab</em></li>
+<li>De nouveaux profils : <em>Data Scientist</em>, <em>Data Engineer</em>, <em>Data Architect</em></li>
+</ul></li>
+<li><p>La majorité des projets de data science <span class="orange"><strong>ne sont pas déployés</strong></span></p></li>
+<li><p>Besoin d’<span class="orange"><strong>industrialisation</strong></span> qui nécessite de nouveaux outils</p></li>
+</ul>
+</section>
+<section id="lapproche-devops" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>L’approche DevOps</h2>
+<ul>
+<li><p>Idée : <span class="orange"><strong>unifier</strong></span> le développement (<em>dev</em>) et l’administration système (<em>ops</em>)</p></li>
+<li><p>But : raccourcir le temps de développement en <span class="orange"><strong>déployant en continu</strong></span> tout en maintenant la qualité</p></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/devops.png" height="300"></p>
+</figure>
 </div>
 </div>
 </section>
+<section id="devops-dataops-mlops" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>DevOps, DataOps, MLOps ?</h2>
+<ul>
+<li><p>Le <span class="orange"><strong>DevOps</strong></span> n’intègre pas les spécificités liées à la data science</p></li>
+<li><p><span class="orange"><strong>DataOps</strong></span> : déploiement et maintenance de <span class="blue2"><strong>pipelines de données</strong></span></p></li>
+<li><p><span class="orange"><strong>MLOps</strong></span> : déploiement et maintenance de <span class="blue2"><strong>modèles de Machine Learning</strong></span></p></li>
+<li><p>Les <span class="orange"><strong>bonnes pratiques</strong></span> favorisent la collaboration et facilitent les déploiements</p></li>
+</ul>
+</section>
+<section id="la-mise-en-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>La mise en production</h2>
+<ul>
+<li><p>On a construit un projet de data science <span class="orange"><strong>reproductible</strong></span> et conforme aux <span class="orange"><strong>standards</strong></span> des bonnes pratiques</p></li>
+<li><p>Pour <span class="orange"><strong>valoriser</strong></span> le projet, il faut le <span class="orange"><strong>déployer</strong></span> dans un environnement en lien avec les utilisateurs</p>
+<ul>
+<li>Quel est le <span class="blue2"><strong>format</strong></span> adapté pour le valoriser ?</li>
+<li>Quelle <span class="blue2"><strong>infrastructure de production</strong></span> ?</li>
+<li>Comment <span class="blue2"><strong>automatiser</strong></span> le processus de déploiement ?</li>
+</ul></li>
+</ul>
+</section>
+<section id="format-de-valorisation" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Format de valorisation</h2>
+<ul>
+<li><span class="orange"><strong>Critères</strong></span> à prendre en compte :
+<ul>
+<li>Quels sont les <span class="blue2"><strong>utilisateurs</strong></span> potentiels ?</li>
+<li>Seulement de la <span class="blue2"><strong>mise à disposition</strong></span>, ou besoin d’<span class="blue2"><strong>interactivité</strong></span> ?</li>
+<li>Spécificités ML : entraînement en <span class="blue2"><strong>batch</strong></span> ou <span class="blue2"><strong>online</strong></span> ?</li>
+<li>Besoin de <span class="blue2"><strong>scalabilité</strong></span> ?</li>
+</ul></li>
+<li><span class="orange"><strong>Formats usuels</strong></span> : API, application web, dashboard, site internet, rapport automatisé…</li>
+</ul>
+
+<div class="footer footer-default">
+<p><strong><em>PSL Data Week</em></strong></p>
+</div>
+</section></section>
+
     </div>
   </div>
 
