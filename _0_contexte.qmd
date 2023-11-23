@@ -10,22 +10,8 @@
 
 . . .
 
-- Implication dans l'innovation statistique, l'_open source_ et la diffusion grand public[^2]:
-    + {{< fa brands r-project >}}: [`utilitR`](https://www.book.utilitr.org/),  [`doremifasol`](https://github.com/InseeFrLab/DoReMIFaSol)
-    + {{< fa brands python >}}: [`cartiflette`](https://github.com/InseeFrLab/cartiflette), [`pynsee`](https://github.com/InseeFrLab/pynsee)
+- Accompagnement de projets _data science_ ;
 
-[^2]: Pas tout seul ! Avec une communauté de gens sympa de l'administration et de la recherche ! Beaucoup de projets novateurs 😍 sur [compte {{< fa brands github >}} `InseeFrLab`](https://github.com/InseeFrLab/)
-
-
-## [Qui suis-je ?](https://www.linogaliana.fr/) {.smaller}
-
-- Travaux à l'intersection entre
-informatique, économie, sociologie & géographie:
-    + [Ségrégation avec données de téléphonie mobile](https://www.insee.fr/fr/statistiques/fichier/version-html/4925200/G2020-12.pdf)
-    + Inégalités alimentaires à partir de données massives de supermarchés
-
-
-![Exemple tiré de l'[Insee Analyse](https://www.insee.fr/fr/statistiques/fichier/4930403/ia59.pdf) sur la mixité sociale](https://ses.ens-lyon.fr/images/actualites-rapports-etudes-et-4-pages/2020-11-09-insee-ia59-fig4.jpg)
 
 ## [Qui suis-je ?](https://www.linogaliana.fr/)
 
@@ -71,6 +57,253 @@ __Et surtout consultez le portail complet de formation du [datalab de l'Insee](h
     - _Machine learning_ (re)devenu un outil classique ;
     - Réseaux de neurone pour les problèmes complexes (NLP, CV)...
 
+::: {.callout-tip}
+## Pourquoi le _machine learning_ ?
+
+- Meilleure prise en compte des non-linéarités que statistique paramétrique ;
+- Simplicité à mise en oeuvre opérationnelle ;
+- ...
+:::
+
+## Diversification des données (1/4)
+
+### Données tabulaires classiques
+
+
+```{ojs}
+viewof info_mutations = Inputs.radio(
+  ["Tableau", "Graphique"], {value: "Tableau"}
+)
+```
+
+```{ojs}
+info_mutations == "Tableau" ? html`<div>${table_mutations1}<div>` : html`<div>${plot_mutations}<div>`
+```
+
+```{ojs}
+//| output: false
+url = "https://files.data.gouv.fr/geo-dvf/latest/csv/2020/communes/92/92049.csv"
+proxy = "https://corsproxy.io/?"
+dvf = d3.csv(proxy + url)
+```
+
+```{ojs}
+//| output: false
+table_mutations1 = Inputs.table(dvf, {"columns": ['date_mutation', 'valeur_fonciere', 'adresse_nom_voie']})
+plot_mutations = Plot.plot({
+  y: {grid: true, label: "Nombre de transactions"},
+  x: {
+    ticks: 12,
+    transform: (d) => Math.pow(10, d),
+    type: "log",
+    tickFormat: "~s",
+    label: "Prix (échelle log) →"
+  },
+  marks: [
+    Plot.rectY(
+      dvf.filter(d => d.valeur_fonciere > 10000),
+      Plot.binX({y: "count"},
+      {
+        x: d => Math.log10(d.valeur_fonciere),
+        tip: true
+      })
+    ),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+```{ojs}
+Plot = require("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.10/dist/plot.umd.min.js")
+```
+
+
+## Diversification des données (1/4) 
+
+### Données tabulaires classiques
+
+- Données __structurées__ sous forme de tableau
+
+![Source: [Hadley Wickham, _R for data science_](https://r4ds.hadley.nz/data-tidy.html)](https://r4ds.hadley.nz/images/tidy-1.png)
+
+
+- {{< fa brands python >}} très bien outillé pour ces données (si volumétrie adaptée)
+
+
+## Diversification des données (2/4)
+
+<h3>Données géolocalisées</h3>
+
+```{ojs}
+viewof info_power_plants = Inputs.radio(
+  ["Tableau", "Carte"], {value: "Tableau"}
+)
+```
+
+```{ojs}
+info_power_plants == "Tableau" ? html`<div>${table_power_plants}<div>` : html`<div>${plot_power_plants}<div>`
+```
+
+
+```{ojs}
+//| output: false
+import {us_power_plants, states} from "@observablehq/build-your-first-map-with-observable-plot"
+
+table_power_plants = Inputs.table(
+  us_power_plants
+)
+
+
+plot_power_plants = Plot.plot({
+  projection: "albers-usa",
+  marks: [
+    Plot.geo(states, { fill: "white", stroke: "#e2e2e2"  }),
+    Plot.dot(us_power_plants, {
+      x: "longitude",
+      y: "latitude",
+      r: "Total_MW",
+      fill: "PrimSource",
+      opacity: 0.7,
+      tip: true
+    }),
+    Plot.dot(us_power_plants, { // Can you figure out what this additional Plot.dot layer adds?
+      x: "longitude",
+      y: "latitude",
+      r: "Total_MW",
+      fill: "PrimSource",
+      stroke: "black",
+      filter: d => d.Total_MW > 3500,
+    }),
+    Plot.text(us_power_plants, { // Add text to the map using data from us_power_plants
+      x: "longitude", // Place text horizontally at plant longitude
+      y: "latitude", // Place text vertically at plant latitude
+      text: "Plant_Name", // The text that appears is the value from the Plant_Name column,
+      filter: (d) => d.Total_MW > 3500, // Only add text for plants with capacity exceeding 3500 MW
+      fontSize: 12, // Increased font size
+      fontWeight: 600, // Increased font weight
+      stroke: "white", // Adds white outer stroke to text (for readability)
+      fill: "black", // Text fill color
+      textAnchor: "start", // Left align text with the x- and y-coordinates
+      dx: 15 // Shifts text to the right (starting from left alignment with coordinate)
+    })
+  ],
+  r: { range: [1, 15] },
+  color: { legend: true },
+  height: 500,
+  width: 800,
+  margin: 50
+})
+```
+
+## Diversification des données (2/4)
+
+<h3>Données géolocalisées</h3>
+
+- Données tabulaires avec une dimension spatiale supplémentaire
+    + Dimension géographique prend des formes multiples:
+    + Points, lignes, polygones...
+
+. . .
+
+- {{< fa brands python >}} très bien outillé pour ces données (si volumétrie adaptée)
+
+## Diversification des données (3/4) {.smaller}
+
+<h3>Données textuelles et non structurées</h3>
+
+- Techniques statistiques anciennes ([Levenshtein 1957](https://en.wikipedia.org/wiki/Levenshtein_distance), [perceptron](https://fr.wikipedia.org/wiki/Perceptron)) ;
+
+. . .
+
+- Applications limitées jusqu'aux années 2010 ;
+
+. . .
+
+- Développement très rapide de la recherche :
+    + Collecte accrue : réseaux sociaux, enquêtes...
+    + Baisse coûts stockage & augmentation ressources traitement ;
+    + Nouvelles techniques statistiques: _webscraping_, LLM...
+
+. . .
+
+- Utilisation intensive dans l'administration, la recherche et le secteur privé
+    + Plus d'infos dans mon cours sur les [données émergentes](https://ensai-donnees-emergentes.netlify.app/textes)
+
+## Diversification des données (3/4) {.smaller}
+
+<h3>Données textuelles et non structurées</h3>
+
+
+- Les __[LLM]{.blue2}__ bien sûr...
+- ... Mais pas que !
+
+<br>
+
+
+```{ojs}
+viewof activite = Inputs.text( 
+  {label: '', value: 'data scientist', width: 800}
+)
+```
+
+
+```{ojs}
+d3.json(urlApe).then(res => {
+  var IC, results;
+
+  ({ IC, ...results } = res);
+
+  IC = parseFloat(IC);
+
+  const rows = Object.values(results).map(obj => {
+    return `
+    <tr>
+      <td>${obj.code} | ${obj.libelle}</td>
+      <td>${obj.probabilite.toFixed(3)}</td>
+    </tr>
+  `;
+  }).join('');
+
+  const confidenceRow = `<tr>
+    <td colspan="2" style="text-align:left; "><em>Indice de confiance : ${IC.toFixed(3)}</em></td>
+  </tr>`;
+
+  const tableHTML = html`
+  <table>
+    <caption>
+      Prédiction de l'activité
+    </caption>
+    <tr>
+      <th style="text-align:center;">Libellé (NA2008)</th>
+      <th>Probabilité</th>
+    </tr>
+      ${rows}
+      ${confidenceRow}
+  </table>`;
+
+  // Now you can use the tableHTML as needed, for example, inserting it into the DOM.
+  // For example, assuming you have a container with the id "tableContainer":
+  return tableHTML;
+});
+```
+
+```{ojs}
+activite_debounce = debounce(viewof activite, 2000)
+urlApe = `https://codification-ape-test.lab.sspcloud.fr/predict?nb_echos_max=3&prob_min=0&text_feature=${activite_debounce}`
+```
+
+```{ojs}
+import {debounce} from "@mbostock/debouncing-input"
+```
+
+
+## Diversification des données (4/4)
+
+### Images, sons et vidéos
+
+![Plus d'infos dans mon cours sur les [données émergentes](https://ensai-donnees-emergentes.netlify.app/textes)](https://nanonets.com/blog/content/images/2020/08/1_Hz6t-tokG1niaUfmcysusw.jpeg)
+
+
 
 ## Diversité des méthodes de _machine learning_
 
@@ -78,24 +311,30 @@ __Et surtout consultez le portail complet de formation du [datalab de l'Insee](h
     - Apprentissage supervisé vs non supervisé ;
     - Question évaluation _ex post_ des modèles: labellisation
 
-- Quelle variable d'intérêt ?
+- Quelle variable d'intérêt dans un cadre supervisé ?
     - Régression vs classification
 
-
+- Quels algorithmes choisir ?
 
 ## Diversité des méthodes de _machine learning_
 
 ![](https://scikit-learn.org/stable/_static/ml_map.png)
 
 
-## `Scikit-Learn`: un point d'entrée unifié
+## `Scikit-Learn`: un point d'entrée unifié {.smaller}
 
 - La librairie de référence pour le ML
     + Développée par l'Inria 🇫🇷🐓
+
+. . .
 
 - Toutes les étapes d'un _pipeline_ basique
     + Préparation des données: _train/test split_, imputation, standardisation, etc.
     + Estimation: toutes les méthodes ont la même structure
     + Evaluation: métriques de performance, validation croisée, etc.
 
+. . .
+
 - Structure formelle de _pipeline_
+    + Facilitera la mise en production
+

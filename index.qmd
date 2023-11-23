@@ -30,13 +30,108 @@ from: markdown+emoji
 
 ## Plan
 
-1. Retour sur les évolutions récentes ;
-2. Pourquoi parler de mise en production ;
+1. Evolutions récentes de l'écosystème de la donnée ;
+2. Pourquoi parler de mise en production ? ;
+
+## Objectifs pédagogiques
+
+- Comprendre les implications pratiques de l'utilisation accrue du _machine learning_ ;
+
+. . .
+
+- Mettre en oeuvre un _pipeline_ de _machine learning_ avec `Python` ;
+    + Données de transactions immobilières DVF
+
+. . .
+
+- Découvrir la mise à disposition de modèles sous forme d'API
+
 
 {{< include "_0_contexte.qmd"  >}}
 
 
 {{< include "_1_introduction.qmd"  >}}
 
+# Application 1: _pipeline_ de _machine learning_
+
+## Prise en main du `SSP Cloud`
+
+![](https://git.lab.sspcloud.fr/diit/presentation/energy-data-hack-2022/20220523-day_1-onyxia_onboarding/-/raw/main/slideshow/DragonHoldingComputer.svg)
+
+## Le SSP Cloud, c'est quoi ?
+
+![](https://git.lab.sspcloud.fr/diit/presentation/energy-data-hack-2022/20220523-day_1-onyxia_onboarding/-/raw/main/slideshow/macbook_onyxia.png)
+
+## Le SSP Cloud, c'est quoi ?
+
+- Des serveurs hébergés à l'Insee avec de nombreux logiciels statistiques (dont {{< fa brands python >}} ) dessus
+- Environnement ouvert à des formations en _data science_
+pour découvrir et expérimenter
+- __Seulement avec des données en open data__
 
 
+:::{.callout-note}
+Plus de détails dans la [documentation du `SSP Cloud`](https://www.sspcloud.fr/formation)
+:::
+
+## Pourquoi utiliser le SSP Cloud ?
+
+- Pénible d'installer `Python` et une ribambelle de _packages_ de _data science_
+- Mise à disposition d'un environnement standardisé:
+    + TP parfaitement reproductibles
+- Un TP peut être lancé en un clic-bouton:
+    + <a href="https://datalab.sspcloud.fr/launcher/ide/jupyter-python?autoLaunch=true&amp;onyxia.friendlyName=%C2%ABpython-datascience%C2%BB&amp;init.personalInit=%C2%ABhttps%3A%2F%2Fraw.githubusercontent.com%2Flinogaliana%2Fpython-datascientist%2Fmaster%2Fsspcloud%2Finit-jupyter.sh%C2%BB&amp;init.personalInitArgs=%C2%ABmodelisation%206_pipeline%C2%BB&amp;security.allowlist.enabled=false" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/SSP%20Cloud-Tester_avec_Jupyter-orange?logo=Jupyter&amp;logoColor=orange" alt="Onyxia"></a>
+
+
+## Créer un compte
+
+- Utiliser votre adresse `@dauphine.psl.eu` pour créer un compte sur [datalab.sspcloud.fr/](https://datalab.sspcloud.fr/)
+- Votre nom d’utilisateur ne doit contenir ni caractères accentués, ni caractère spécial, ni signe de ponctuation:
+
+> Vous pouvez adopter le format prenomnom en faisant attention aux règles précédentes. Par exemple, si vous vous appelez Jérôme-Gérard L’Hâltère, votre nom d’utilisateur pourra être __jeromegerardlhaltere__.
+
+
+## Application 1
+
+- Objectifs:
+    - Modèle de prix sur données immobilières ;
+    - _Feature engineering_, validation croisée, etc. ;
+    - Découvrir les _pipelines_ `Scikit` ;
+
+- Direction 👉️ chapitre _"Pipeline"_ de [https://pythonds.linogaliana.fr](https://pythonds.linogaliana.fr/content/modelisation/6_pipeline.html)
+
+
+
+# Mise en production de notre modèle
+
+## Vers la mise en production
+
+- On a construit un projet de data science [**reproductible**]{.orange} et conforme aux [**standards**]{.orange} des bonnes pratiques
+
+. . .
+
+- Pour [**valoriser**]{.orange} le projet, il faut le [**déployer**]{.orange} dans un environnement en lien avec les utilisateurs
+    - Quel est le [**format**]{.blue2} adapté pour le valoriser ?
+    - Quelle [**infrastructure de production**]{.blue2} ?
+    - Comment [**automatiser**]{.blue2} le processus de déploiement ?
+
+## Format de valorisation
+
+- [**Critères**]{.orange} à prendre en compte :
+    - Quels sont les [**utilisateurs**]{.blue2} potentiels ?
+    - Seulement de la [**mise à disposition**]{.blue2}, ou besoin d'[**interactivité**]{.blue2} ?
+    - Spécificités ML : entraînement en [**batch**]{.blue2} ou [**online**]{.blue2} ?
+    - Besoin de [**scalabilité**]{.blue2} ?
+
+- [**Formats usuels**]{.orange} : API, application web, dashboard, site internet, rapport automatisé...
+
+
+## Exposer un modèle via une API REST
+
+- [**API** : **interface**]{.orange} entre l'utilisateur (client) et le modèle entraîné
+
+- [**API REST**]{.orange} : permet de requêter le modèle avec une syntaxe simple (HTTP) et de manière *scalable*
+
+. . .
+
+![](https://ensae-reproductibilite.github.io/slides/img/api-docker.png){fig-align="center"}
