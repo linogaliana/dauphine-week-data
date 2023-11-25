@@ -25,6 +25,7 @@ format:
   #onyxia-dark-revealjs:
     #output-file: slides.html
 from: markdown+emoji
+css: custom.css
 ---
 
 
@@ -135,3 +136,63 @@ Plus de détails dans la [documentation du `SSP Cloud`](https://www.sspcloud.fr/
 . . .
 
 ![](https://ensae-reproductibilite.github.io/slides/img/api-docker.png){fig-align="center"}
+
+## Développer une API en local
+
+## Aller plus loin
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{ojs}
+html`<div>Nombre de pièces</div><div>${viewof pieces_principales}</div>`
+```
+:::
+
+::: {.column width="50%"}
+```{ojs}
+html`<div>Surface de l'appartement</div><div>${viewof surface}</div>`
+```
+:::
+
+::::
+
+```{ojs}
+viewof pieces_principales = Inputs.range([1, 12], {step: 1, value: 6})
+```
+
+```{ojs}
+viewof surface = Inputs.range([1, 300], {step: 1, value: 50})
+```
+
+
+```{ojs}
+md`${return_message}`
+```
+
+
+
+```{ojs}
+url_api_dvf = `https://corsproxy.io/?https://dvf-simple-api.lab.sspcloud.fr/predict?month=4&nombre_lots=1&code_type_local=2&nombre_pieces_principales=${pieces_principales}&surface=${surface}`
+```
+
+```{ojs}
+value = d3.json(url_api_dvf).then(data => {
+    // Access the 'value' property from the object
+    let originalNumber = data;
+
+    // Convert it to a floating-point number
+    let numericValue = parseFloat(originalNumber);
+
+    // Round the number
+    let roundedNumber = Math.round(numericValue).toLocaleString();
+
+    return roundedNumber;
+}).catch(error => console.error('Error:', error));
+```
+
+```{ojs}
+return_message = `Valeur estimée de l'appartement: __${value} €__`
+```
+
+
