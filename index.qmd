@@ -107,11 +107,11 @@ Plus de détails dans la [documentation du `SSP Cloud`](https://www.sspcloud.fr/
 
 ## Vers la mise en production
 
-- On a construit un projet de data science [**reproductible**]{.orange} et conforme aux [**standards**]{.orange} des bonnes pratiques
+- On a construit un projet de data science [**reproductible**]{.orange} et conforme aux [**standards**]{.orange} des bonnes pratiques.
 
 . . .
 
-- Pour [**valoriser**]{.orange} le projet, il faut le [**déployer**]{.orange} dans un environnement en lien avec les utilisateurs
+- Pour [**valoriser**]{.orange} le projet, il faut le [**déployer**]{.orange} dans un environnement en lien avec les [**utilisateurs**]{.blue2}:
     - Quel est le [**format**]{.blue2} adapté pour le valoriser ?
     - Quelle [**infrastructure de production**]{.blue2} ?
     - Comment [**automatiser**]{.blue2} le processus de déploiement ?
@@ -126,6 +126,22 @@ Plus de détails dans la [documentation du `SSP Cloud`](https://www.sspcloud.fr/
 
 - [**Formats usuels**]{.orange} : API, application web, dashboard, site internet, rapport automatisé...
 
+## _Workflow_ classique
+
+<br>
+Progresser pas à pas pour faciliter l'utilisation du modèle:
+
+::: {.incremental}
+1. Transformer les _notebooks_ en **[_script_]{.orange}** ;
+2. Créer une [__API en local__]{.orange} avec {{< fa brands python >}} pour faciliter le `predict` ;
+3. [__Déployer l'API__]{.orange} pour la rendre disponible à tous ;
+4. Greffer des [__applications clientes__]{.orange} pour faciliter l'usage.
+:::
+
+::: {.callout-note}
+Chaque étape est une progression dans l'échelle de la technicité et de la reproductibilité.
+:::
+
 
 ## Exposer un modèle via une API REST
 
@@ -137,7 +153,103 @@ Plus de détails dans la [documentation du `SSP Cloud`](https://www.sspcloud.fr/
 
 ![](https://ensae-reproductibilite.github.io/slides/img/api-docker.png){fig-align="center"}
 
-## Développer une API en local
+## Développer une API en local {.scrollable}
+
+<h4>Etape 1: modulariser la consommation du modèle</h4>
+
+* _Scripts_ pour les différentes étapes du _pipeline_ ML:
+    + Récupération des données ;
+    + Définition _pipeline_ `Scikit`: _preprocessing_, _training_ ;
+    + Consommation du modèle pour `predict`.
+
+. . .
+
+* Définir une fonction qui prend en argument les variables du modèle
+
+<details>
+<summary>
+Exemple
+</summary>
+
+::: {.python}
+```python
+def predict(
+    month: int = 3,
+    nombre_lots: int = 1,
+    code_type_local: int = 2,
+    nombre_pieces_principales: int = 3,
+    surface: float = 75
+) -> float:
+    """
+    """
+
+    df = pd.DataFrame(
+        {
+            "month": [month],
+            "Nombre_de_lots": [nombre_lots],
+            "Code_type_local": [code_type_local],
+            "Nombre_pieces_principales": [nombre_pieces_principales],
+            "surface": [surface]
+        }
+    )
+
+    prediction = model.predict(df)
+
+    return prediction
+```
+:::
+
+</details>
+
+
+## Développer une API en local {.scrollable}
+
+<h4>Etape 2: créer une API en local</h4>
+
+- `FastAPI`: _framework_ simple pour créer une API avec {{< fa brands python >}}
+    + Très simple de transformer fonctions en API ; 
+    + Documentation automatisée pour le _swagger_
+
+<details>
+<summary>
+Exemple
+</summary>
+
+::: {.python}
+```python
+@app.get("/predict", tags=["Predict"])
+async def predict(
+    month: int = 3,
+    nombre_lots: int = 1,
+    code_type_local: int = 2,
+    nombre_pieces_principales: int = 3,
+    surface: float = 75
+) -> float:
+    """
+    """
+
+    df = pd.DataFrame(
+        {
+            "month": [month],
+            "Nombre_de_lots": [nombre_lots],
+            "Code_type_local": [code_type_local],
+            "Nombre_pieces_principales": [nombre_pieces_principales],
+            "surface": [surface]
+        }
+    )
+
+    prediction = model.predict(df)
+
+    return prediction
+```
+:::
+
+</details>
+
+## Déployer une API
+
+- Rendre disponible à d'autres utilisateurs l'API ;
+- 
 
 ## Aller plus loin
 
