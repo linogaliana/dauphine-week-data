@@ -214,7 +214,7 @@
     "href": "index.html#vers-la-mise-en-production",
     "title": "Mise en production de modèles de machine learning",
     "section": "Vers la mise en production",
-    "text": "Vers la mise en production\n\nOn a construit un projet de data science reproductible et conforme aux standards des bonnes pratiques\n\n\n\nPour valoriser le projet, il faut le déployer dans un environnement en lien avec les utilisateurs\n\nQuel est le format adapté pour le valoriser ?\nQuelle infrastructure de production ?\nComment automatiser le processus de déploiement ?"
+    "text": "Vers la mise en production\n\nOn a construit un projet de data science reproductible et conforme aux standards des bonnes pratiques.\n\n\n\nPour valoriser le projet, il faut le déployer dans un environnement en lien avec les utilisateurs:\n\nQuel est le format adapté pour le valoriser ?\nQuelle infrastructure de production ?\nComment automatiser le processus de déploiement ?"
   },
   {
     "objectID": "index.html#format-de-valorisation",
@@ -224,10 +224,45 @@
     "text": "Format de valorisation\n\nCritères à prendre en compte :\n\nQuels sont les utilisateurs potentiels ?\nSeulement de la mise à disposition, ou besoin d’interactivité ?\nSpécificités ML : entraînement en batch ou online ?\nBesoin de scalabilité ?\n\nFormats usuels : API, application web, dashboard, site internet, rapport automatisé…"
   },
   {
+    "objectID": "index.html#workflow-classique",
+    "href": "index.html#workflow-classique",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Workflow classique",
+    "text": "Workflow classique\n\nProgresser pas à pas pour faciliter l’utilisation du modèle:\n\n\nTransformer les notebooks en script ;\nCréer une API en local avec  pour faciliter le predict ;\nDéployer l’API pour la rendre disponible à tous ;\nGreffer des applications clientes pour faciliter l’usage.\n\n\n\n\n\n\n\n\nNote\n\n\nChaque étape est une progression dans l’échelle de la technicité et de la reproductibilité."
+  },
+  {
     "objectID": "index.html#exposer-un-modèle-via-une-api-rest",
     "href": "index.html#exposer-un-modèle-via-une-api-rest",
     "title": "Mise en production de modèles de machine learning",
     "section": "Exposer un modèle via une API REST",
-    "text": "Exposer un modèle via une API REST\n\nAPI : interface entre l’utilisateur (client) et le modèle entraîné\nAPI REST : permet de requêter le modèle avec une syntaxe simple (HTTP) et de manière scalable\n\n\n\n\n\n\n\n\n\nPSL Data Week"
+    "text": "Exposer un modèle via une API REST\n\nAPI : interface entre l’utilisateur (client) et le modèle entraîné\nAPI REST : permet de requêter le modèle avec une syntaxe simple (HTTP) et de manière scalable"
+  },
+  {
+    "objectID": "index.html#développer-une-api-en-local",
+    "href": "index.html#développer-une-api-en-local",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Développer une API en local",
+    "text": "Développer une API en local\n\nEtape 1: modulariser la consommation du modèle\n\n\nScripts pour les différentes étapes du pipeline ML:\n\nRécupération des données ;\nDéfinition pipeline Scikit: preprocessing, training ;\nConsommation du modèle pour predict.\n\n\n\n\nDéfinir une fonction qui prend en argument les variables du modèle\n\n\n\nExemple\n\n\ndef predict(\n    month: int = 3,\n    nombre_lots: int = 1,\n    code_type_local: int = 2,\n    nombre_pieces_principales: int = 3,\n    surface: float = 75\n) -&gt; float:\n    \"\"\"\n    \"\"\"\n\n    df = pd.DataFrame(\n        {\n            \"month\": [month],\n            \"Nombre_de_lots\": [nombre_lots],\n            \"Code_type_local\": [code_type_local],\n            \"Nombre_pieces_principales\": [nombre_pieces_principales],\n            \"surface\": [surface]\n        }\n    )\n\n    prediction = model.predict(df)\n\n    return prediction"
+  },
+  {
+    "objectID": "index.html#développer-une-api-en-local-1",
+    "href": "index.html#développer-une-api-en-local-1",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Développer une API en local",
+    "text": "Développer une API en local\n\nEtape 2: créer une API en local\n\n\nFastAPI: framework simple pour créer une API avec \n\nTrès simple de transformer fonctions en API ;\nDocumentation automatisée pour le swagger\n\n\n\n\nExemple\n\n\n@app.get(\"/predict\", tags=[\"Predict\"])\nasync def predict(\n    month: int = 3,\n    nombre_lots: int = 1,\n    code_type_local: int = 2,\n    nombre_pieces_principales: int = 3,\n    surface: float = 75\n) -&gt; float:\n    \"\"\"\n    \"\"\"\n\n    df = pd.DataFrame(\n        {\n            \"month\": [month],\n            \"Nombre_de_lots\": [nombre_lots],\n            \"Code_type_local\": [code_type_local],\n            \"Nombre_pieces_principales\": [nombre_pieces_principales],\n            \"surface\": [surface]\n        }\n    )\n\n    prediction = model.predict(df)\n\n    return prediction"
+  },
+  {
+    "objectID": "index.html#déployer-une-api",
+    "href": "index.html#déployer-une-api",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Déployer une API",
+    "text": "Déployer une API\n\nRendre disponible à d’autres utilisateurs l’API ;"
+  },
+  {
+    "objectID": "index.html#aller-plus-loin",
+    "href": "index.html#aller-plus-loin",
+    "title": "Mise en production de modèles de machine learning",
+    "section": "Aller plus loin",
+    "text": "Aller plus loin\n\n\n\nhtml`&lt;div&gt;Nombre de pièces&lt;/div&gt;&lt;div&gt;${viewof pieces_principales}&lt;/div&gt;`\n\n\n\n\n\n\n\n\nhtml`&lt;div&gt;Surface de l'appartement&lt;/div&gt;&lt;div&gt;${viewof surface}&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\nviewof pieces_principales = Inputs.range([1, 12], {step: 1, value: 6})\n\n\n\n\n\n\n\nviewof surface = Inputs.range([1, 300], {step: 1, value: 50})\n\n\n\n\n\n\n\nmd`${return_message}`\n\n\n\n\n\n\n\nurl_api_dvf = `https://corsproxy.io/?https://dvf-simple-api.lab.sspcloud.fr/predict?month=4&nombre_lots=1&code_type_local=2&nombre_pieces_principales=${pieces_principales}&surface=${surface}`\n\n\n\n\n\n\n\nvalue = d3.json(url_api_dvf).then(data =&gt; {\n    // Access the 'value' property from the object\n    let originalNumber = data;\n\n    // Convert it to a floating-point number\n    let numericValue = parseFloat(originalNumber);\n\n    // Round the number\n    let roundedNumber = Math.round(numericValue).toLocaleString();\n\n    return roundedNumber;\n}).catch(error =&gt; console.error('Error:', error));\n\n\n\n\n\n\n\nreturn_message = `Valeur estimée de l'appartement: __${value} €__`\n\n\n\n\n\n\n\n\nPSL Data Week"
   }
 ]
