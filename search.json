@@ -1,268 +1,282 @@
 [
   {
-    "objectID": "index.html#plan",
-    "href": "index.html#plan",
-    "title": "Mise en production de modèles de machine learning",
-    "section": "Plan",
-    "text": "Plan\n\nEvolutions récentes de l’écosystème de la donnée ;\nPourquoi parler de mise en production ? ;"
-  },
-  {
-    "objectID": "index.html#objectifs-pédagogiques",
-    "href": "index.html#objectifs-pédagogiques",
-    "title": "Mise en production de modèles de machine learning",
-    "section": "Objectifs pédagogiques",
-    "text": "Objectifs pédagogiques\n\nComprendre les implications pratiques de l’utilisation accrue du machine learning ;\n\n\n\nMettre en oeuvre un pipeline de machine learning avec Python ;\n\nDonnées de transactions immobilières DVF\n\n\n\n\n\nDécouvrir la mise à disposition de modèles sous forme d’API"
-  },
-  {
     "objectID": "index.html#qui-suis-je-fa-brands-firefox-sizetiny-fa-brands-github-sizetiny-fa-brands-twitter-sizetiny-fa-brands-linkedin-sizetiny-fa-brands-python-sizetiny",
     "href": "index.html#qui-suis-je-fa-brands-firefox-sizetiny-fa-brands-github-sizetiny-fa-brands-twitter-sizetiny-fa-brands-linkedin-sizetiny-fa-brands-python-sizetiny",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Qui suis-je ?      ",
     "text": "Qui suis-je ?      \n\nData scientist au lab de l’Insee :\n\nAdministrateur Insee ;\nCoordonnateur d’un réseau de data scientists\n\n\n\n\nAccompagnement de projets data science ;"
   },
   {
     "objectID": "index.html#qui-suis-je",
     "href": "index.html#qui-suis-je",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Qui suis-je ?",
     "text": "Qui suis-je ?\nD’autres cours que je donne à l’ENSAE ou l’Insee peuvent vous intéresser:\n\nPython pour la data science ;\nMise en production de projets data science ;\nBonnes pratiques en R et Git ;\nDonnées émergentes ;\n\nEt surtout consultez le portail complet de formation du datalab de l’Insee"
   },
   {
+    "objectID": "index.html#plan",
+    "href": "index.html#plan",
+    "title": "Construire un pipeline de machine learning",
+    "section": "Plan",
+    "text": "Plan\n\nEvolutions récentes de l’écosystème de la donnée ;\nPourquoi parler de mise en production ?\nCréation d’un pipeline sur données de transactions immobilières ;\nMise en production par le biais d’une API"
+  },
+  {
+    "objectID": "index.html#objectifs-pédagogiques",
+    "href": "index.html#objectifs-pédagogiques",
+    "title": "Construire un pipeline de machine learning",
+    "section": "Objectifs pédagogiques",
+    "text": "Objectifs pédagogiques\n\nComprendre les implications pratiques de l’utilisation accrue du machine learning ;\n\n\n\nMettre en oeuvre un pipeline de machine learning avec Python ;\n\nDonnées de transactions immobilières DVF\n\n\n\n\n\nDécouvrir la mise à disposition de modèles sous forme d’API"
+  },
+  {
     "objectID": "index.html#prolifération-des-données",
     "href": "index.html#prolifération-des-données",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Prolifération des données",
     "text": "Prolifération des données\n\nNumérisation et innovations technologiques ont réduit le coût de production de la donnée ;\n\nVolume de données produites en explosion\n\n\n\n\nL’utilisation des statistiques n’est pas nouvelle (cf. Desrosières)…\n\n\n\n\n… mais une place accrue :\n\nDans le débat public et l’action publique (Supiot, Martin) ;\nDans les stratégies d’entreprise."
   },
   {
     "objectID": "index.html#diversification-des-données",
     "href": "index.html#diversification-des-données",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données",
     "text": "Diversification des données\n\nDes données de nature très différentes:\n\nDonnées structurées classiques ;\nDonnées géolocalisées ;\nDonnées textuelles et non structurées ;\nImages, sons et vidéos.\n\n\n\n\nBesoin de nouvelles méthodes pour valoriser ces données :\n\nMachine learning (re)devenu un outil classique ;\nRéseaux de neurone pour les problèmes complexes (NLP, CV)…\n\n\n\n\n\n\n\n\nPourquoi le machine learning ?\n\n\n\nMeilleure prise en compte des non-linéarités que statistique paramétrique ;\nSimplicité à mise en oeuvre opérationnelle ;\n…"
   },
   {
     "objectID": "index.html#diversification-des-données-14",
     "href": "index.html#diversification-des-données-14",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données (1/4)",
     "text": "Diversification des données (1/4)\nDonnées tabulaires classiques\n\nviewof info_mutations = Inputs.radio(\n  [\"Tableau\", \"Graphique\"], {value: \"Tableau\"}\n)\n\n\n\n\n\n\n\ninfo_mutations == \"Tableau\" ? html`&lt;div&gt;${table_mutations1}&lt;div&gt;` : html`&lt;div&gt;${plot_mutations}&lt;div&gt;`\n\n\n\n\n\n\n\nurl = \"https://files.data.gouv.fr/geo-dvf/latest/csv/2020/communes/92/92049.csv\"\nproxy = \"https://corsproxy.io/?\"\ndvf = d3.csv(proxy + url)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntable_mutations1 = Inputs.table(dvf, {\"columns\": ['date_mutation', 'valeur_fonciere', 'adresse_nom_voie']})\nplot_mutations = Plot.plot({\n  y: {grid: true, label: \"Nombre de transactions\"},\n  x: {\n    ticks: 12,\n    transform: (d) =&gt; Math.pow(10, d),\n    type: \"log\",\n    tickFormat: \"~s\",\n    label: \"Prix (échelle log) →\"\n  },\n  marks: [\n    Plot.rectY(\n      dvf.filter(d =&gt; d.valeur_fonciere &gt; 10000),\n      Plot.binX({y: \"count\"},\n      {\n        x: d =&gt; Math.log10(d.valeur_fonciere),\n        tip: true\n      })\n    ),\n    Plot.ruleY([0])\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot = require(\"https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6.10/dist/plot.umd.min.js\")"
   },
   {
     "objectID": "index.html#diversification-des-données-14-1",
     "href": "index.html#diversification-des-données-14-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données (1/4)",
     "text": "Diversification des données (1/4)\nDonnées tabulaires classiques\n\nDonnées structurées sous forme de tableau\n\n\nSource: Hadley Wickham, R for data science\n très bien outillé pour ces données (si volumétrie adaptée)"
   },
   {
     "objectID": "index.html#diversification-des-données-24",
     "href": "index.html#diversification-des-données-24",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données (2/4)",
     "text": "Diversification des données (2/4)\n\nDonnées géolocalisées\n\n\nviewof info_power_plants = Inputs.radio(\n  [\"Tableau\", \"Carte\"], {value: \"Tableau\"}\n)\n\n\n\n\n\n\n\ninfo_power_plants == \"Tableau\" ? html`&lt;div&gt;${table_power_plants}&lt;div&gt;` : html`&lt;div&gt;${plot_power_plants}&lt;div&gt;`\n\n\n\n\n\n\n\nimport {us_power_plants, states} from \"@observablehq/build-your-first-map-with-observable-plot\"\n\ntable_power_plants = Inputs.table(\n  us_power_plants\n)\n\n\nplot_power_plants = Plot.plot({\n  projection: \"albers-usa\",\n  marks: [\n    Plot.geo(states, { fill: \"white\", stroke: \"#e2e2e2\"  }),\n    Plot.dot(us_power_plants, {\n      x: \"longitude\",\n      y: \"latitude\",\n      r: \"Total_MW\",\n      fill: \"PrimSource\",\n      opacity: 0.7,\n      tip: true\n    }),\n    Plot.dot(us_power_plants, { // Can you figure out what this additional Plot.dot layer adds?\n      x: \"longitude\",\n      y: \"latitude\",\n      r: \"Total_MW\",\n      fill: \"PrimSource\",\n      stroke: \"black\",\n      filter: d =&gt; d.Total_MW &gt; 3500,\n    }),\n    Plot.text(us_power_plants, { // Add text to the map using data from us_power_plants\n      x: \"longitude\", // Place text horizontally at plant longitude\n      y: \"latitude\", // Place text vertically at plant latitude\n      text: \"Plant_Name\", // The text that appears is the value from the Plant_Name column,\n      filter: (d) =&gt; d.Total_MW &gt; 3500, // Only add text for plants with capacity exceeding 3500 MW\n      fontSize: 12, // Increased font size\n      fontWeight: 600, // Increased font weight\n      stroke: \"white\", // Adds white outer stroke to text (for readability)\n      fill: \"black\", // Text fill color\n      textAnchor: \"start\", // Left align text with the x- and y-coordinates\n      dx: 15 // Shifts text to the right (starting from left alignment with coordinate)\n    })\n  ],\n  r: { range: [1, 15] },\n  color: { legend: true },\n  height: 500,\n  width: 800,\n  margin: 50\n})"
   },
   {
     "objectID": "index.html#diversification-des-données-24-1",
     "href": "index.html#diversification-des-données-24-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données (2/4)",
     "text": "Diversification des données (2/4)\n\nDonnées géolocalisées\n\n\nDonnées tabulaires avec une dimension spatiale supplémentaire\n\nDimension géographique prend des formes multiples:\nPoints, lignes, polygones…\n\n\n\n\n très bien outillé pour ces données (si volumétrie adaptée)"
   },
   {
     "objectID": "index.html#diversification-des-données-34",
     "href": "index.html#diversification-des-données-34",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données (3/4)",
     "text": "Diversification des données (3/4)\n\nDonnées textuelles et non structurées\n\n\nTechniques statistiques anciennes (Levenshtein 1957, perceptron) ;\n\n\n\nApplications limitées jusqu’aux années 2010 ;\n\n\n\n\nDéveloppement très rapide de la recherche :\n\nCollecte accrue : réseaux sociaux, enquêtes…\nBaisse coûts stockage & augmentation ressources traitement ;\nNouvelles techniques statistiques: webscraping, LLM…\n\n\n\n\n\nUtilisation intensive dans l’administration, la recherche et le secteur privé\n\nPlus d’infos dans mon cours sur les données émergentes"
   },
   {
     "objectID": "index.html#diversification-des-données-34-1",
     "href": "index.html#diversification-des-données-34-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données (3/4)",
     "text": "Diversification des données (3/4)\n\nDonnées textuelles et non structurées\n\n\nLes LLM bien sûr…\n… Mais pas que !\n\n\n\nviewof activite = Inputs.text( \n  {label: '', value: 'data scientist', width: 800}\n)\n\n\n\n\n\n\n\nd3.json(urlApe).then(res =&gt; {\n  var IC, results;\n\n  ({ IC, ...results } = res);\n\n  IC = parseFloat(IC);\n\n  const rows = Object.values(results).map(obj =&gt; {\n    return `\n    &lt;tr&gt;\n      &lt;td&gt;${obj.code} | ${obj.libelle}&lt;/td&gt;\n      &lt;td&gt;${obj.probabilite.toFixed(3)}&lt;/td&gt;\n    &lt;/tr&gt;\n  `;\n  }).join('');\n\n  const confidenceRow = `&lt;tr&gt;\n    &lt;td colspan=\"2\" style=\"text-align:left; \"&gt;&lt;em&gt;Indice de confiance : ${IC.toFixed(3)}&lt;/em&gt;&lt;/td&gt;\n  &lt;/tr&gt;`;\n\n  const tableHTML = html`\n  &lt;table&gt;\n    &lt;caption&gt;\n      Prédiction de l'activité\n    &lt;/caption&gt;\n    &lt;tr&gt;\n      &lt;th style=\"text-align:center;\"&gt;Libellé (NA2008)&lt;/th&gt;\n      &lt;th&gt;Probabilité&lt;/th&gt;\n    &lt;/tr&gt;\n      ${rows}\n      ${confidenceRow}\n  &lt;/table&gt;`;\n\n  // Now you can use the tableHTML as needed, for example, inserting it into the DOM.\n  // For example, assuming you have a container with the id \"tableContainer\":\n  return tableHTML;\n});\n\n\n\n\n\n\n\nactivite_debounce = debounce(viewof activite, 2000)\nurlApe = `https://codification-ape-test.lab.sspcloud.fr/predict?nb_echos_max=3&prob_min=0&text_feature=${activite_debounce}`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport {debounce} from \"@mbostock/debouncing-input\""
   },
   {
     "objectID": "index.html#diversification-des-données-44",
     "href": "index.html#diversification-des-données-44",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données (4/4)",
     "text": "Diversification des données (4/4)\nImages, sons et vidéos\n\nPlus d’infos dans mon cours sur les données émergentes"
   },
   {
     "objectID": "index.html#diversité-des-méthodes-de-machine-learning",
     "href": "index.html#diversité-des-méthodes-de-machine-learning",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversité des méthodes de machine learning",
     "text": "Diversité des méthodes de machine learning\n\nDispose-t-on de données labellisées ou pas ?\n\nApprentissage supervisé vs non supervisé ;\nQuestion évaluation ex post des modèles: labellisation\n\nQuelle variable d’intérêt dans un cadre supervisé ?\n\nRégression vs classification\n\nQuels algorithmes choisir ?"
   },
   {
     "objectID": "index.html#diversité-des-méthodes-de-machine-learning-1",
     "href": "index.html#diversité-des-méthodes-de-machine-learning-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Diversité des méthodes de machine learning",
     "text": "Diversité des méthodes de machine learning"
   },
   {
     "objectID": "index.html#scikit-learn-un-point-dentrée-unifié",
     "href": "index.html#scikit-learn-un-point-dentrée-unifié",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Scikit-Learn: un point d’entrée unifié",
     "text": "Scikit-Learn: un point d’entrée unifié\n\nLa librairie de référence pour le ML\n\nDéveloppée par l’Inria 🇫🇷🐓\n\n\n\n\nToutes les étapes d’un pipeline basique\n\nPréparation des données: train/test split, imputation, standardisation, etc.\nEstimation: toutes les méthodes ont la même structure\nEvaluation: métriques de performance, validation croisée, etc.\n\n\n\n\n\nStructure formelle de pipeline\n\nFacilitera la mise en production"
   },
   {
     "objectID": "index.html#pourquoi",
     "href": "index.html#pourquoi",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Pourquoi ?",
     "text": "Pourquoi ?"
   },
   {
     "objectID": "index.html#pourquoi-1",
     "href": "index.html#pourquoi-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Pourquoi ?",
     "text": "Pourquoi ?\n\n\nLes data scientists ne connaissent pas le développement applicatif (mais en cours d’évolution) ;\nLes informaticiens classiques (devs & ops) ne connaissent pas le machine learning."
   },
   {
     "objectID": "index.html#contexte-1",
     "href": "index.html#contexte-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Contexte",
     "text": "Contexte\n\nDifficulté de passer des expérimentations à la mise en production de modèle de machine learning\n\n\n\nTirer parti des meilleures pratiques en génie logiciel:\n\nAméliorer la reproductibilité des analyses\nDéployer des applications de manière robuste\nSurveiller les applications en cours d’exécution"
   },
   {
     "objectID": "index.html#le-data-scientist-moderne",
     "href": "index.html#le-data-scientist-moderne",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Le data scientist moderne",
     "text": "Le data scientist moderne\n\nL’activité du data scientist tend à se rapprocher de celle du développeur :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et des infrastructures\ndéploiement d’applications pour valoriser les analyses"
   },
   {
     "objectID": "index.html#lapproche-devops",
     "href": "index.html#lapproche-devops",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "L’approche DevOps",
     "text": "L’approche DevOps\n\nUnifier le développement (dev) et l’administration système (ops)\n\nRéduire le temps de développement\nMaintenir la qualité logicielle"
   },
   {
     "objectID": "index.html#lapproche-mlops",
     "href": "index.html#lapproche-mlops",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "L’approche MLOps",
     "text": "L’approche MLOps\n\nIntégrer les spécificités des projets de machine learning\n\nExpérimentation\nAmélioration continue"
   },
   {
     "objectID": "index.html#devops-dataops-mlops",
     "href": "index.html#devops-dataops-mlops",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "DevOps, DataOps, MLOps ?",
     "text": "DevOps, DataOps, MLOps ?\n\nLe DevOps n’intègre pas les spécificités liées à la data science ;\nDataOps : déploiement et maintenance de pipelines de données ;\nMLOps : déploiement et maintenance de modèles de Machine Learning ;\n\n\n\n\n\n\n\nNote\n\n\nLes bonnes pratiques favorisent la collaboration et facilitent les déploiements."
   },
   {
     "objectID": "index.html#la-notion-de-mise-en-production",
     "href": "index.html#la-notion-de-mise-en-production",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "La notion de mise en production",
     "text": "La notion de mise en production\n\n\n\n\n\n\nDéfinition\n\n\n\nMettre en production : faire vivre une application dans l’espace de ses utilisateurs\n\nNotion simple mais mise en oeuvre compliquée !\n\n\n\n\n\n\nDépasser le stade de l’expérimentation\n\nBonnes pratiques de développement\nTechniques informatiques d’industrialisation\n\n\n\n\nEnjeu : pouvoir jouer le rôle d’interface entre métier et équipes techniques\n\nEvolution du métier de data scientist ;\nSpécificités du ML par rapport à un projet “classique”."
   },
   {
     "objectID": "index.html#prise-en-main-du-ssp-cloud",
     "href": "index.html#prise-en-main-du-ssp-cloud",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Prise en main du SSP Cloud",
     "text": "Prise en main du SSP Cloud"
   },
   {
     "objectID": "index.html#le-ssp-cloud-cest-quoi",
     "href": "index.html#le-ssp-cloud-cest-quoi",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Le SSP Cloud, c’est quoi ?",
     "text": "Le SSP Cloud, c’est quoi ?"
   },
   {
     "objectID": "index.html#le-ssp-cloud-cest-quoi-1",
     "href": "index.html#le-ssp-cloud-cest-quoi-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Le SSP Cloud, c’est quoi ?",
     "text": "Le SSP Cloud, c’est quoi ?\n\nDes serveurs hébergés à l’Insee avec de nombreux logiciels statistiques (dont  ) dessus\nEnvironnement ouvert à des formations en data science\npour découvrir et expérimenter\nSeulement avec des données en open data\n\n\n\n\n\n\n\nNote\n\n\nPlus de détails dans la documentation du SSP Cloud"
   },
   {
     "objectID": "index.html#pourquoi-utiliser-le-ssp-cloud",
     "href": "index.html#pourquoi-utiliser-le-ssp-cloud",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Pourquoi utiliser le SSP Cloud ?",
     "text": "Pourquoi utiliser le SSP Cloud ?\n\nPénible d’installer Python et une ribambelle de packages de data science\nMise à disposition d’un environnement standardisé:\n\nTP parfaitement reproductibles\n\nUn TP peut être lancé en un clic-bouton:"
   },
   {
     "objectID": "index.html#créer-un-compte",
     "href": "index.html#créer-un-compte",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Créer un compte",
-    "text": "Créer un compte\n\nUtiliser votre adresse @dauphine.psl.eu pour créer un compte sur datalab.sspcloud.fr/\nVotre nom d’utilisateur ne doit contenir ni caractères accentués, ni caractère spécial, ni signe de ponctuation:\n\n\nVous pouvez adopter le format prenomnom en faisant attention aux règles précédentes. Par exemple, si vous vous appelez Jérôme-Gérard L’Hâltère, votre nom d’utilisateur pourra être jeromegerardlhaltere."
+    "text": "Créer un compte\n\nUtiliser votre adresse mail universitaire pour créer un compte sur datalab.sspcloud.fr/\nVotre nom d’utilisateur ne doit contenir ni caractères accentués, ni caractère spécial, ni signe de ponctuation:\n\n\nVous pouvez adopter le format prenomnom en faisant attention aux règles précédentes. Par exemple, si vous vous appelez Jérôme-Gérard L’Hâltère, votre nom d’utilisateur pourra être jeromegerardlhaltere."
   },
   {
     "objectID": "index.html#application-1",
     "href": "index.html#application-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Application 1",
     "text": "Application 1\n\nObjectifs:\n\nModèle de prix sur données immobilières ;\nFeature engineering, validation croisée, etc. ;\nDécouvrir les pipelines Scikit ;\n\nDirection 👉️ chapitre “Pipeline” de https://pythonds.linogaliana.fr"
   },
   {
     "objectID": "index.html#vers-la-mise-en-production",
     "href": "index.html#vers-la-mise-en-production",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Vers la mise en production",
     "text": "Vers la mise en production\n\nOn a construit un projet de data science reproductible et conforme aux standards des bonnes pratiques.\n\n\n\nPour valoriser le projet, il faut le déployer dans un environnement en lien avec les utilisateurs:\n\nQuel est le format adapté pour le valoriser ?\nQuelle infrastructure de production ?\nComment automatiser le processus de déploiement ?"
   },
   {
     "objectID": "index.html#format-de-valorisation",
     "href": "index.html#format-de-valorisation",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Format de valorisation",
     "text": "Format de valorisation\n\nCritères à prendre en compte :\n\nQuels sont les utilisateurs potentiels ?\nSeulement de la mise à disposition, ou besoin d’interactivité ?\nSpécificités ML : entraînement en batch ou online ?\nBesoin de scalabilité ?\n\nFormats usuels : API, application web, dashboard, site internet, rapport automatisé…"
   },
   {
     "objectID": "index.html#workflow-classique",
     "href": "index.html#workflow-classique",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Workflow classique",
     "text": "Workflow classique\n\nProgresser pas à pas pour faciliter l’utilisation du modèle:\n\n\nTransformer les notebooks en script ;\nCréer une API en local avec  pour faciliter le predict ;\nDéployer l’API pour la rendre disponible à tous ;\nGreffer des applications clientes pour faciliter l’usage.\n\n\n\n\n\n\n\n\nNote\n\n\nChaque étape est une progression dans l’échelle de la technicité et de la reproductibilité."
   },
   {
     "objectID": "index.html#exposer-un-modèle-via-une-api-rest",
     "href": "index.html#exposer-un-modèle-via-une-api-rest",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Exposer un modèle via une API REST",
     "text": "Exposer un modèle via une API REST\n\nAPI : interface entre l’utilisateur (client) et le modèle entraîné\nAPI REST : permet de requêter le modèle avec une syntaxe simple (HTTP) et de manière scalable"
   },
   {
     "objectID": "index.html#développer-une-api-en-local",
     "href": "index.html#développer-une-api-en-local",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Développer une API en local",
     "text": "Développer une API en local\n\nEtape 1: modulariser la consommation du modèle\n\n\nScripts pour les différentes étapes du pipeline ML:\n\nRécupération des données ;\nDéfinition pipeline Scikit: preprocessing, training ;\nConsommation du modèle pour predict.\n\n\n\n\nDéfinir une fonction qui prend en argument les variables du modèle\n\n\n\nExemple\n\n\ndef predict(\n    month: int = 3,\n    nombre_lots: int = 1,\n    code_type_local: int = 2,\n    nombre_pieces_principales: int = 3,\n    surface: float = 75\n) -&gt; float:\n    \"\"\"\n    \"\"\"\n\n    df = pd.DataFrame(\n        {\n            \"month\": [month],\n            \"Nombre_de_lots\": [nombre_lots],\n            \"Code_type_local\": [code_type_local],\n            \"Nombre_pieces_principales\": [nombre_pieces_principales],\n            \"surface\": [surface]\n        }\n    )\n\n    prediction = model.predict(df)\n\n    return prediction"
   },
   {
     "objectID": "index.html#développer-une-api-en-local-1",
     "href": "index.html#développer-une-api-en-local-1",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Développer une API en local",
     "text": "Développer une API en local\n\nEtape 2: créer une API en local\n\n\nFastAPI: framework simple pour créer une API avec \n\nTrès simple de transformer fonctions en API ;\nDocumentation automatisée pour le swagger\n\n\n\n\nExemple\n\n\n@app.get(\"/predict\", tags=[\"Predict\"])\nasync def predict(\n    month: int = 3,\n    nombre_lots: int = 1,\n    code_type_local: int = 2,\n    nombre_pieces_principales: int = 3,\n    surface: float = 75\n) -&gt; float:\n    \"\"\"\n    \"\"\"\n\n    df = pd.DataFrame(\n        {\n            \"month\": [month],\n            \"Nombre_de_lots\": [nombre_lots],\n            \"Code_type_local\": [code_type_local],\n            \"Nombre_pieces_principales\": [nombre_pieces_principales],\n            \"surface\": [surface]\n        }\n    )\n\n    prediction = model.predict(df)\n\n    return prediction"
   },
   {
     "objectID": "index.html#déployer-une-api",
     "href": "index.html#déployer-une-api",
-    "title": "Mise en production de modèles de machine learning",
+    "title": "Construire un pipeline de machine learning",
     "section": "Déployer une API",
-    "text": "Déployer une API\n\nRendre disponible à d’autres utilisateurs l’API ;"
+    "text": "Déployer une API\n\nRendre disponible à d’autres utilisateurs l’API ;\n\n\n\nNécessite une infrastructure:\n\nAWS, GCP, Azure…\nInfra Kubernetes on premise\n\n\n\n\n\nSelon les organisations, pas forcément data scientist qui fait cela\n\nMais, data scientist doit savoir échanger avec l’équipe qui déploie l’API."
   },
   {
-    "objectID": "index.html#aller-plus-loin",
-    "href": "index.html#aller-plus-loin",
-    "title": "Mise en production de modèles de machine learning",
-    "section": "Aller plus loin",
-    "text": "Aller plus loin\n\n\n\nhtml`&lt;div&gt;Nombre de pièces&lt;/div&gt;&lt;div&gt;${viewof pieces_principales}&lt;/div&gt;`\n\n\n\n\n\n\n\n\nhtml`&lt;div&gt;Surface de l'appartement&lt;/div&gt;&lt;div&gt;${viewof surface}&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\nviewof pieces_principales = Inputs.range([1, 12], {step: 1, value: 6})\n\n\n\n\n\n\n\nviewof surface = Inputs.range([1, 300], {step: 1, value: 50})\n\n\n\n\n\n\n\nmd`${return_message}`\n\n\n\n\n\n\n\nurl_api_dvf = `https://corsproxy.io/?https://dvf-simple-api.lab.sspcloud.fr/predict?month=4&nombre_lots=1&code_type_local=2&nombre_pieces_principales=${pieces_principales}&surface=${surface}`\n\n\n\n\n\n\n\nvalue = d3.json(url_api_dvf).then(data =&gt; {\n    // Access the 'value' property from the object\n    let originalNumber = data;\n\n    // Convert it to a floating-point number\n    let numericValue = parseFloat(originalNumber);\n\n    // Round the number\n    let roundedNumber = Math.round(numericValue).toLocaleString();\n\n    return roundedNumber;\n}).catch(error =&gt; console.error('Error:', error));\n\n\n\n\n\n\n\nreturn_message = `Valeur estimée de l'appartement: __${value} €__`\n\n\n\n\n\n\n\n\nPSL Data Week"
+    "objectID": "index.html#déployer-une-api-1",
+    "href": "index.html#déployer-une-api-1",
+    "title": "Construire un pipeline de machine learning",
+    "section": "Déployer une API",
+    "text": "Déployer une API\n\nExemple de réutilisation facilitée🚀\n\n\n\n\n\nhtml`&lt;div&gt;Nombre de pièces&lt;/div&gt;&lt;div&gt;${viewof pieces_principales}&lt;/div&gt;`\n\n\n\n\n\n\n\n\nhtml`&lt;div&gt;Surface de l'appartement&lt;/div&gt;&lt;div&gt;${surface}&lt;/div&gt;`\n\n\n\n\n\n\n\n\n\nviewof pieces_principales = Inputs.range([1, 12], {step: 1, value: 6})\n\n\n\n\n\n\n\nviewof surface = Inputs.range([1, 300], {step: 1, value: 50})\n\n\n\n\n\n\n\nmd`${return_message}`\n\n\n\n\n\n\n\nhtml`${url_api_print}`\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nDocumentation de l’API\n\n\n\n\nurl_api_dvf = `https://corsproxy.io/?https://dvf-simple-api.lab.sspcloud.fr/predict?month=4&nombre_lots=1&code_type_local=2&nombre_pieces_principales=${pieces_principales}&surface=${surface}`\n\n\n\n\n\n\n\nurl_api_print = md`[&lt;span class=\"blue-underlined\"&gt;https://dvf-simple-api.lab.sspcloud.fr/predict?&lt;/span&gt;month=4&nombre_lots=1&code_type_local=2&nombre_pieces_principales=&lt;span class=\"blue-underlined\"&gt;${pieces_principales}&lt;/span&gt;&surface=&lt;span class=\"blue-underlined\"&gt;${surface}&lt;/span&gt;](${url_api_dvf})`\n\n\n\n\n\n\n\nvalue = d3.json(url_api_dvf).then(data =&gt; {\n    // Access the 'value' property from the object\n    let originalNumber = data;\n\n    // Convert it to a floating-point number\n    let numericValue = parseFloat(originalNumber);\n\n    // Round the number\n    let roundedNumber = Math.round(numericValue).toLocaleString();\n\n    return roundedNumber;\n}).catch(error =&gt; console.error('Error:', error));\n\n\n\n\n\n\n\nreturn_message = `Valeur estimée de l'appartement: &lt;span class=\"blue2\"&gt;__${value} €__&lt;/span&gt;`"
+  },
+  {
+    "objectID": "index.html#conclusion",
+    "href": "index.html#conclusion",
+    "title": "Construire un pipeline de machine learning",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nUn pipeline bien pensé est facile à mettre en production\n\nScikit & FastAPI: combo 🔥 pour mettre à disposition un modèle ;\n\n\n\n\nEn 6 heures on a:\n\nRécupéré des données ;\nCréé un pipeline fonctionnel de machine learning,\nCrée une API pour mettre à disposition le modèle.\n\n\n\n\n\nOn peut maintenant se concentrer sur l’amélioration de la qualité du modèle:\n\nOuvre vers le MLOps: combiner modèle en production, modèle en développement, etc.\nEnjeux de monitoring de la qualité"
+  },
+  {
+    "objectID": "index.html#pour-aller-plus-loin",
+    "href": "index.html#pour-aller-plus-loin",
+    "title": "Construire un pipeline de machine learning",
+    "section": "Pour aller plus loin",
+    "text": "Pour aller plus loin\n\nMise en production de projets data science (ENSAE, 3e année) ;\nExcellente formation au MLOps (collègues de l’Insee).\n\n\n\nPSL Data Week"
   }
 ]
