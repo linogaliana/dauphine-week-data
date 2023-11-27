@@ -294,7 +294,7 @@ async def predict(
     - Développer une API pour consommer le modèle développé précédemment ;
 
 
-- Direction 👉️ chapitre _"API de machine learning"_ de [https://pythonds.linogaliana.fr](https://pythonds.linogaliana.fr/content/modelisation/7_pipeline.html)
+- Direction 👉️ chapitre _"API de machine learning"_ de [https://pythonds.linogaliana.fr](https://pythonds.linogaliana.fr/content/modelisation/7_mlapi.html)
 
 
 # Aller plus loin: automatiser la création de l'API
@@ -355,7 +355,7 @@ html`<div>Nombre de pièces</div><div>${viewof pieces_principales}</div>`
 
 ::: {.column width="50%"}
 ```{ojs}
-html`<div>Surface de l'appartement</div><div>${surface}</div>`
+html`<div>Surface de l'appartement</div><div>${viewof surface}</div>`
 ```
 :::
 
@@ -384,7 +384,7 @@ html`${url_api_print}`
 
 
 ```{ojs}
-url_api_dvf = `https://corsproxy.io/?https://dvf-simple-api.lab.sspcloud.fr/predict?month=4&nombre_lots=1&code_type_local=2&nombre_pieces_principales=${pieces_principales}&surface=${surface}`
+url_api_dvf = `https://dvf-simple-api.lab.sspcloud.fr/predict?month=4&nombre_lots=1&code_type_local=2&nombre_pieces_principales=${pieces_principales}&surface=${surface}`
 ```
 
 ```{ojs}
