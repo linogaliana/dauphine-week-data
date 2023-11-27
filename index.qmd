@@ -61,23 +61,33 @@ __Et surtout consultez le portail complet de formation du [datalab de l'Insee](h
 
 ## Plan
 
-1. Evolutions récentes de l'écosystème de la donnée ;
-2. Pourquoi parler de mise en production ?
-3. Création d'un _pipeline_ sur données de transactions immobilières ;
-4. Mise en production par le biais d'une API
+::: {.incremental}
+
+* 1️⃣ Evolutions récentes de l'écosystème de la donnée ;
+* 2️⃣ Pourquoi parler de mise en production ?
+* 3️⃣ Création d'un _pipeline_ sur données de transactions immobilières ;
+* 4️⃣ Enjeux de la mise en production par le biais d'une API
+* 5️⃣ _APIfication_ de notre modèle de prix ;
+* 6️⃣ Comment aller plus loin ?
+* 🚀
+
+:::
 
 ## Objectifs pédagogiques
 
-- Comprendre les implications pratiques de l'utilisation accrue du _machine learning_ ;
+<br>
+
+- Comprendre les [__implications pratiques__]{.orange} de l'utilisation accrue du _machine learning_ pour la modélisation ;
 
 . . .
 
-- Mettre en oeuvre un _pipeline_ de _machine learning_ avec `Python` ;
-    + Données de transactions immobilières DVF
+- Construire un _pipeline_ de _machine learning_ avec [{{< fa brands python >}}]{.blue2} ;
+    + [Données de transactions immobilières DVF](https://app.dvf.etalab.gouv.fr/).
 
 . . .
 
-- Découvrir la mise à disposition de modèles sous forme d'API
+- Découvrir la mise à disposition de modèles sous forme d'API:
+    + Être à la page de la pratique moderne de la _data science_.
 
 
 {{< include "_0_contexte.qmd"  >}}
@@ -135,7 +145,7 @@ Plus de détails dans la [documentation du `SSP Cloud`](https://www.sspcloud.fr/
 
 
 
-# Mise en production de notre modèle
+# Avancer vers la mise en production d'un modèle 🚀
 
 ## Vers la mise en production
 
@@ -278,6 +288,41 @@ async def predict(
 
 </details>
 
+## Application 2
+
+- Objectif:
+    - Développer une API pour consommer le modèle développé précédemment ;
+
+
+- Direction 👉️ chapitre _"API de machine learning"_ de [https://pythonds.linogaliana.fr](https://pythonds.linogaliana.fr/content/modelisation/7_pipeline.html)
+
+
+# Aller plus loin: automatiser la création de l'API
+
+## Limite de l'approche précédente {.smaller}
+
+- L'entraînement et la création de l'API sont [__faits à la main__]{.orange}:
+    + Approche artisanale jusqu'ici ;
+    + MLOps: passer à l'âge industriel.
+
+. . .
+
+- Automatiser :
+    + L'__[entraînement du modèle]{.blue2}__ (voir [formation MLOps](https://inseefrlab.github.io/formation-mlops/slides/en/index.html) de l'Insee) ;
+    + La __[création et le déploiement de l'API]{.blue2}__ (voir cours [mise en production](https://ensae-reproductibilite.github.io/website/) de l'ENSAE).
+
+. . .
+
+- Le CI/CD adapté aux projets de _machine learning_.
+
+::: {.callout-note}
+# CI/CD: _kesako_ ?
+
+- [__Intégration continue (CI)__]{.orange} : à chaque modification du code source, l’application est automatiquement testée et reconstruite ;
+- [__Déploiement continu (CD)__]{.orange} : les nouvelles versions validées sont automatiquement mise à disposition aux utilisateurs.
+:::
+
+
 ## Déployer une API
 
 - Rendre disponible à d'autres utilisateurs l'API ;
@@ -369,25 +414,29 @@ return_message = `Valeur estimée de l'appartement: <span class="blue2">__${valu
 
 ## Conclusion {.smaller}
 
-- Un _pipeline_ bien pensé est facile à mettre en production
+- Un _pipeline_ bien pensé est [__facile à mettre en production__]{.orange}
     + `Scikit` & `FastAPI`: combo 🔥 pour mettre à disposition un modèle ;
 
 . . .
 
-- En 6 heures on a:
-    - Récupéré des données ;
-    - Créé un _pipeline_ fonctionnel de _machine learning_,
-    - Crée une API pour mettre à disposition le modèle.
+- En seulement 6 heures on a:
+    - __[Récupéré]{.blue2}__ et __[nettoyé]{.blue2}__ des données ;
+    - __[Créé un _pipeline_]{.blue2}__ fonctionnel de _machine learning_,
+    - __[Crée une API]{.blue2}__ pour mettre à disposition le modèle.
 
 . . .
 
-- On peut maintenant se concentrer sur l'amélioration de la qualité du modèle:
-    - Ouvre vers le `MLOps`: combiner modèle en production, modèle en développement, etc.
-    - Enjeux de _monitoring_ de la qualité
+- On peut maintenant se [__concentrer sur l'amélioration de la qualité__]{.orange} du modèle:
+    - Ouvre vers le _MLOps_: combiner modèle en production, modèles en développement, etc.
+    - Enjeux de _monitoring_ de la qualité du modèle avec arrivée de nouvelles données.
 
 
 
 ## Pour aller plus loin
 
+<br>
+
+Quelques ressources complémentaires
+
 - [Mise en production de projets _data science_](https://ensae-reproductibilite.github.io/website/) (ENSAE, 3e année) ;
-- Excellente [formation au `MLOps`](https://inseefrlab.github.io/formation-mlops/slides/en/index.html) (collègues de l'Insee).
+- Excellente [formation au `MLOps`](https://inseefrlab.github.io/formation-mlops/slides/en/index.html) (collègues de l'Insee 😉).

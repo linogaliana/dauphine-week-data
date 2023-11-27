@@ -274,18 +274,22 @@ import {debounce} from "@mbostock/debouncing-input"
 
 ### Images, sons et vidéos
 
-![Plus d'infos dans mon cours sur les [données émergentes](https://ensai-donnees-emergentes.netlify.app/textes)](https://nanonets.com/blog/content/images/2020/08/1_Hz6t-tokG1niaUfmcysusw.jpeg)
+![Plus d'infos dans ce cours sur les [données émergentes](https://ensai-donnees-emergentes.netlify.app/textes) que je donne avec Tom Seimandi](https://nanonets.com/blog/content/images/2020/08/1_Hz6t-tokG1niaUfmcysusw.jpeg)
 
 
 
 ## Diversité des méthodes de _machine learning_
 
-- Dispose-t-on de données labellisées ou pas ? 
+- Dispose-t-on de __[données labellisées]{.orange}__ ou pas ? 
     - Apprentissage supervisé vs non supervisé ;
     - Question évaluation _ex post_ des modèles: labellisation
 
+. . .
+
 - Quelle variable d'intérêt dans un cadre supervisé ?
     - Régression vs classification
+
+. . .
 
 - Quels algorithmes choisir ?
 
