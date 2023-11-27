@@ -18,14 +18,14 @@
     "href": "index.html#plan",
     "title": "Construire un pipeline de machine learning",
     "section": "Plan",
-    "text": "Plan\n\nEvolutions récentes de l’écosystème de la donnée ;\nPourquoi parler de mise en production ?\nCréation d’un pipeline sur données de transactions immobilières ;\nMise en production par le biais d’une API"
+    "text": "Plan\n\n\n1️⃣ Evolutions récentes de l’écosystème de la donnée ;\n2️⃣ Pourquoi parler de mise en production ?\n3️⃣ Création d’un pipeline sur données de transactions immobilières ;\n4️⃣ Enjeux de la mise en production par le biais d’une API\n5️⃣ APIfication de notre modèle de prix ;\n6️⃣ Comment aller plus loin ?\n🚀"
   },
   {
     "objectID": "index.html#objectifs-pédagogiques",
     "href": "index.html#objectifs-pédagogiques",
     "title": "Construire un pipeline de machine learning",
     "section": "Objectifs pédagogiques",
-    "text": "Objectifs pédagogiques\n\nComprendre les implications pratiques de l’utilisation accrue du machine learning ;\n\n\n\nMettre en oeuvre un pipeline de machine learning avec Python ;\n\nDonnées de transactions immobilières DVF\n\n\n\n\n\nDécouvrir la mise à disposition de modèles sous forme d’API"
+    "text": "Objectifs pédagogiques\n\n\nComprendre les implications pratiques de l’utilisation accrue du machine learning pour la modélisation ;\n\n\n\nConstruire un pipeline de machine learning avec  ;\n\nDonnées de transactions immobilières DVF.\n\n\n\n\n\nDécouvrir la mise à disposition de modèles sous forme d’API:\n\nÊtre à la page de la pratique moderne de la data science."
   },
   {
     "objectID": "index.html#prolifération-des-données",
@@ -88,14 +88,14 @@
     "href": "index.html#diversification-des-données-44",
     "title": "Construire un pipeline de machine learning",
     "section": "Diversification des données (4/4)",
-    "text": "Diversification des données (4/4)\nImages, sons et vidéos\n\nPlus d’infos dans mon cours sur les données émergentes"
+    "text": "Diversification des données (4/4)\nImages, sons et vidéos\n\nPlus d’infos dans ce cours sur les données émergentes que je donne avec Tom Seimandi"
   },
   {
     "objectID": "index.html#diversité-des-méthodes-de-machine-learning",
     "href": "index.html#diversité-des-méthodes-de-machine-learning",
     "title": "Construire un pipeline de machine learning",
     "section": "Diversité des méthodes de machine learning",
-    "text": "Diversité des méthodes de machine learning\n\nDispose-t-on de données labellisées ou pas ?\n\nApprentissage supervisé vs non supervisé ;\nQuestion évaluation ex post des modèles: labellisation\n\nQuelle variable d’intérêt dans un cadre supervisé ?\n\nRégression vs classification\n\nQuels algorithmes choisir ?"
+    "text": "Diversité des méthodes de machine learning\n\nDispose-t-on de données labellisées ou pas ?\n\nApprentissage supervisé vs non supervisé ;\nQuestion évaluation ex post des modèles: labellisation\n\n\n\n\nQuelle variable d’intérêt dans un cadre supervisé ?\n\nRégression vs classification\n\n\n\n\n\nQuels algorithmes choisir ?"
   },
   {
     "objectID": "index.html#diversité-des-méthodes-de-machine-learning-1",
@@ -252,6 +252,20 @@
     "text": "Développer une API en local\n\nEtape 2: créer une API en local\n\n\nFastAPI: framework simple pour créer une API avec \n\nTrès simple de transformer fonctions en API ;\nDocumentation automatisée pour le swagger\n\n\n\n\nExemple\n\n\n@app.get(\"/predict\", tags=[\"Predict\"])\nasync def predict(\n    month: int = 3,\n    nombre_lots: int = 1,\n    code_type_local: int = 2,\n    nombre_pieces_principales: int = 3,\n    surface: float = 75\n) -&gt; float:\n    \"\"\"\n    \"\"\"\n\n    df = pd.DataFrame(\n        {\n            \"month\": [month],\n            \"Nombre_de_lots\": [nombre_lots],\n            \"Code_type_local\": [code_type_local],\n            \"Nombre_pieces_principales\": [nombre_pieces_principales],\n            \"surface\": [surface]\n        }\n    )\n\n    prediction = model.predict(df)\n\n    return prediction"
   },
   {
+    "objectID": "index.html#application-2",
+    "href": "index.html#application-2",
+    "title": "Construire un pipeline de machine learning",
+    "section": "Application 2",
+    "text": "Application 2\n\nObjectif:\n\nDévelopper une API pour consommer le modèle développé précédemment ;\n\nDirection 👉️ chapitre “API de machine learning” de https://pythonds.linogaliana.fr"
+  },
+  {
+    "objectID": "index.html#limite-de-lapproche-précédente",
+    "href": "index.html#limite-de-lapproche-précédente",
+    "title": "Construire un pipeline de machine learning",
+    "section": "Limite de l’approche précédente",
+    "text": "Limite de l’approche précédente\n\nL’entraînement et la création de l’API sont faits à la main:\n\nApproche artisanale jusqu’ici ;\nMLOps: passer à l’âge industriel.\n\n\n\n\nAutomatiser :\n\nL’entraînement du modèle (voir formation MLOps de l’Insee) ;\nLa création et le déploiement de l’API (voir cours mise en production de l’ENSAE).\n\n\n\n\n\nLe CI/CD adapté aux projets de machine learning.\n\n\n\n\n\n\n\nCI/CD: kesako ?\n\n\n\nIntégration continue (CI) : à chaque modification du code source, l’application est automatiquement testée et reconstruite ;\nDéploiement continu (CD) : les nouvelles versions validées sont automatiquement mise à disposition aux utilisateurs."
+  },
+  {
     "objectID": "index.html#déployer-une-api",
     "href": "index.html#déployer-une-api",
     "title": "Construire un pipeline de machine learning",
@@ -270,13 +284,13 @@
     "href": "index.html#conclusion",
     "title": "Construire un pipeline de machine learning",
     "section": "Conclusion",
-    "text": "Conclusion\n\nUn pipeline bien pensé est facile à mettre en production\n\nScikit & FastAPI: combo 🔥 pour mettre à disposition un modèle ;\n\n\n\n\nEn 6 heures on a:\n\nRécupéré des données ;\nCréé un pipeline fonctionnel de machine learning,\nCrée une API pour mettre à disposition le modèle.\n\n\n\n\n\nOn peut maintenant se concentrer sur l’amélioration de la qualité du modèle:\n\nOuvre vers le MLOps: combiner modèle en production, modèle en développement, etc.\nEnjeux de monitoring de la qualité"
+    "text": "Conclusion\n\nUn pipeline bien pensé est facile à mettre en production\n\nScikit & FastAPI: combo 🔥 pour mettre à disposition un modèle ;\n\n\n\n\nEn seulement 6 heures on a:\n\nRécupéré et nettoyé des données ;\nCréé un pipeline fonctionnel de machine learning,\nCrée une API pour mettre à disposition le modèle.\n\n\n\n\n\nOn peut maintenant se concentrer sur l’amélioration de la qualité du modèle:\n\nOuvre vers le MLOps: combiner modèle en production, modèles en développement, etc.\nEnjeux de monitoring de la qualité du modèle avec arrivée de nouvelles données."
   },
   {
     "objectID": "index.html#pour-aller-plus-loin",
     "href": "index.html#pour-aller-plus-loin",
     "title": "Construire un pipeline de machine learning",
     "section": "Pour aller plus loin",
-    "text": "Pour aller plus loin\n\nMise en production de projets data science (ENSAE, 3e année) ;\nExcellente formation au MLOps (collègues de l’Insee).\n\n\n\nPSL Data Week"
+    "text": "Pour aller plus loin\n\nQuelques ressources complémentaires\n\nMise en production de projets data science (ENSAE, 3e année) ;\nExcellente formation au MLOps (collègues de l’Insee 😉).\n\n\n\nPSL Data Week"
   }
 ]
