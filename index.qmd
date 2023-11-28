@@ -2,10 +2,12 @@
 title: Construire un pipeline de machine learning
 subtitle: |
   **[Une introduction aux enjeux de mise en production]{.orange}**
-author: |
-    Lino Galiana
-institute: |
-    **[[Lino Galiana](https://www.linogaliana.fr/)]{.blue2}** (_Insee_)
+author:
+    - name: "**[[Lino Galiana](https://www.linogaliana.fr/)]{.blue2}**"
+      email: lino.galiana@insee.fr
+      affiliations:
+        - name: "[__Insee__]{.orange}"
+
 #date: 06-09-2023
 slide-number: true
 footer: |
@@ -440,3 +442,5 @@ Quelques ressources complémentaires
 
 - [Mise en production de projets _data science_](https://ensae-reproductibilite.github.io/website/) (ENSAE, 3e année) ;
 - Excellente [formation au `MLOps`](https://inseefrlab.github.io/formation-mlops/slides/en/index.html) (collègues de l'Insee 😉).
+
+Me contacter: [lino.galiana@insee.fr](mailto:lino.galiana@insee.fr)
