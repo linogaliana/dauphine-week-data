@@ -442,5 +442,9 @@ Quelques ressources complémentaires
 
 - [Mise en production de projets _data science_](https://ensae-reproductibilite.github.io/website/) (ENSAE, 3e année) ;
 - Excellente [formation au `MLOps`](https://inseefrlab.github.io/formation-mlops/slides/en/index.html) (collègues de l'Insee 😉).
+- Me contacter: [lino.galiana@insee.fr](mailto:lino.galiana@insee.fr)
 
-Me contacter: [lino.galiana@insee.fr](mailto:lino.galiana@insee.fr)
+__Corrections__:
+
+- [Chapitre _pipeline_](https://github.com/linogaliana/python-datascientist-notebooks/blob/main/corrections/modelisation/6_pipeline.ipynb) ;
+- [Chapitre API](https://github.com/linogaliana/python-datascientist-notebooks/blob/main/corrections/modelisation/7_mlapi.ipynb).
